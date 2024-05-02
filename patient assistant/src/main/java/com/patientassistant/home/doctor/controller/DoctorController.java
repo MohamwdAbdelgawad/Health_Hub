@@ -36,7 +36,7 @@ public class DoctorController {
         return ResponseEntity.ok( doctorService.getAllDoctors());
     }
     @GetMapping("/{id}")
-    public Doctor getDoctorById(@PathVariable long id){
+    public Doctor getDoctorById(@PathVariable String id){
         return doctorService.getDoctorById(id);
     }
     @GetMapping("/name/{name}")
@@ -48,7 +48,7 @@ public class DoctorController {
         return doctorService.getDoctorsBySpecialtyId(id);
     }
     @PostMapping("/img/{id}")
-    public void updateDoctorImage(@PathVariable long id , @RequestParam MultipartFile image){
+    public void updateDoctorImage(@PathVariable String id , @RequestParam MultipartFile image){
         doctorService.updateImage(id , image);
 
     }

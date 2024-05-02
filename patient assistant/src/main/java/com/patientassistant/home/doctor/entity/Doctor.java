@@ -10,8 +10,7 @@ import java.util.Date;
 @Table(name = "doctor")
 public class Doctor {
     @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String uId;
     @Column(name = "name")
     private String name;
     @Column(name = "birth_date")
@@ -37,9 +36,9 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(long id, String name, Date birthDate, String phoneNumber,
+    public Doctor(String id, String name, Date birthDate, String phoneNumber,
                   String email, Gender gender, String imgPath , String profTitle) {
-        this.id = id;
+        this.uId = id;
         this.name = name;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
@@ -49,8 +48,8 @@ public class Doctor {
         this.profTitle = profTitle;
     }
 
-    public long getId() {
-        return id;
+    public String getId() {
+        return uId;
     }
 
     public String getName() {
@@ -77,8 +76,8 @@ public class Doctor {
         return imgPath;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(String id) {
+        this.uId = id;
     }
 
     public void setName(String name) {

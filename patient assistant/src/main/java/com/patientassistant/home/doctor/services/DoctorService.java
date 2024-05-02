@@ -34,7 +34,7 @@ public class DoctorService {
     public List<Doctor> getAllDoctors(){
         return doctorRepository.findAll();
     }
-    public Doctor getDoctorById(long id){
+    public Doctor getDoctorById(String id){
         return doctorRepository.getDoctorById(id);
     }
     public List<Doctor> getDoctorsByName(String name){
@@ -43,7 +43,7 @@ public class DoctorService {
     public List<Doctor> getDoctorsBySpecialtyId(long id){
         return doctorRepository.getDoctorsBySpecialtyId(id);
     }
-    public void updateImage(long id , MultipartFile image){
+    public void updateImage(String id , MultipartFile image){
         Doctor d = getDoctorById(id);
         try {
             String originalFileName = image.getOriginalFilename();
