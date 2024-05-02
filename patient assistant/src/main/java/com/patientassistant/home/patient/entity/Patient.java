@@ -24,14 +24,16 @@ public class Patient {
     @Column(name = "address")
     private String address;
     @Column(name = "gender")
-    private char gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     @Column(name = "img_path")
     private String imgPath;
 
     public Patient() {
     }
 
-    public Patient(String firstName, String lastName, Date birthDate, String phoneNumber, String email, String address, char gender, String imgPath) {
+    public Patient(String firstName, String lastName, Date birthDate,
+                   String phoneNumber, String email, String address, Gender gender, String imgPath) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -62,7 +64,7 @@ public class Patient {
         return address;
     }
 
-    public char getGender() {
+    public Gender getGender() {
         return gender;
     }
 
@@ -82,7 +84,7 @@ public class Patient {
         this.address = address;
     }
 
-    public void setGender(char gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -113,4 +115,7 @@ public class Patient {
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
     }
+}
+enum Gender{
+    Male , Female
 }

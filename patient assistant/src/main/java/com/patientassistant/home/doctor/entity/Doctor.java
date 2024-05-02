@@ -21,7 +21,8 @@ public class Doctor {
     @Column(name = "email")
     private String email;
     @Column(name = "gender")
-    private char gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     @Column(name = "img_path")
     private String imgPath;
     @ManyToOne(cascade = {CascadeType.PERSIST , CascadeType.DETACH,
@@ -30,11 +31,14 @@ public class Doctor {
     @JoinColumn(name = "specialty_id")
     @JsonBackReference
     private Specialty specialty;
+    @Column(name = "professional_title")
+    private String profTitle;
 
     public Doctor() {
     }
 
-    public Doctor(long id, String name, Date birthDate, String phoneNumber, String email, char gender, String imgPath) {
+    public Doctor(long id, String name, Date birthDate, String phoneNumber,
+                  String email, Gender gender, String imgPath , String profTitle) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
@@ -42,6 +46,7 @@ public class Doctor {
         this.email = email;
         this.gender = gender;
         this.imgPath = imgPath;
+        this.profTitle = profTitle;
     }
 
     public long getId() {
@@ -64,7 +69,7 @@ public class Doctor {
         return email;
     }
 
-    public char getGender() {
+    public Gender getGender() {
         return gender;
     }
 
@@ -92,7 +97,7 @@ public class Doctor {
         this.email = email;
     }
 
-    public void setGender(char gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -107,4 +112,16 @@ public class Doctor {
     public void setSpecialty(Specialty specialty) {
         this.specialty = specialty;
     }
+
+    public String getProfTitle() {
+        return profTitle;
+    }
+
+    public void setProfTitle(String profTitle) {
+        this.profTitle = profTitle;
+    }
+}
+
+enum Gender{
+    Male , Female
 }
