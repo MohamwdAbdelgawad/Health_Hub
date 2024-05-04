@@ -1,5 +1,6 @@
 package com.patientassistant.home.doctor.controller;
 
+import com.patientassistant.home.doctor.dto.DoctorDto;
 import com.patientassistant.home.doctor.entity.Doctor;
 import com.patientassistant.home.doctor.entity.Specialty;
 import com.patientassistant.home.doctor.services.DoctorService;
@@ -32,19 +33,19 @@ public class DoctorController {
         doctorService.deleteDoctor(d);
     }
     @GetMapping
-    public ResponseEntity<List<Doctor>> getAllDoctors(){
+    public ResponseEntity<List<DoctorDto>> getAllDoctors(){
         return ResponseEntity.ok( doctorService.getAllDoctors());
     }
     @GetMapping("/{id}")
-    public Doctor getDoctorById(@PathVariable String id){
+    public DoctorDto getDoctorById(@PathVariable String id){
         return doctorService.getDoctorById(id);
     }
     @GetMapping("/name/{name}")
-    public List<Doctor> getDoctorsByName(@PathVariable String name){
+    public List<DoctorDto> getDoctorsByName(@PathVariable String name){
         return doctorService.getDoctorsByName(name);
     }
     @GetMapping("/speciality/{id}")
-    public List<Doctor> getDoctorsBySpecialtyId(@PathVariable long id){
+    public List<DoctorDto> getDoctorsBySpecialtyId(@PathVariable long id){
         return doctorService.getDoctorsBySpecialtyId(id);
     }
     @PostMapping("/img/{id}")

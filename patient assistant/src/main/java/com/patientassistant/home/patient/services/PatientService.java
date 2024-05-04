@@ -20,7 +20,7 @@ public class PatientService {
     public PatientService(PatientRepository patientRepository){
         this.patientRepository  = patientRepository;
     }
-    public Patient getPatientById(long id){
+    public Patient getPatientById(String id){
         return patientRepository.getPatientsById(id);
     }
     public Patient createPatient(Patient patient){
@@ -34,7 +34,7 @@ public class PatientService {
          patientRepository.delete(patient);
 
     }
-    public void updateImage(long id , MultipartFile image){
+    public void updateImage(String id , MultipartFile image){
         Patient p = getPatientById(id);
         try {
             String originalFileName = image.getOriginalFilename();

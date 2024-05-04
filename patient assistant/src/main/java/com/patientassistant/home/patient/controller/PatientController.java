@@ -22,13 +22,13 @@ public class PatientController {
         return ResponseEntity.ok(patientService.createPatient(patient));
     }
     @PostMapping("/img/{id}")
-    public void updatePatientImage(@PathVariable long id , @RequestParam MultipartFile image){
+    public void updatePatientImage(@PathVariable String id , @RequestParam MultipartFile image){
         patientService.updateImage(id , image);
 
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Patient> getPatientById(@PathVariable long id){
+    public ResponseEntity<Patient> getPatientById(@PathVariable String id){
         return ResponseEntity.ok(patientService.getPatientById(id));
     }
 }
