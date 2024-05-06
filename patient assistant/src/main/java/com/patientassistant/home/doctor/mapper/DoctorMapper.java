@@ -17,7 +17,7 @@ public class DoctorMapper {
         modelMapper.addMappings(new PropertyMap<Doctor, DoctorDto>() {
 
             protected void configure() {
-                //map().setUId(source.getId());
+                map().setUId(source.getId());
                 map().setSpecialty(source.getSpecialty().getName());
             }
         });
