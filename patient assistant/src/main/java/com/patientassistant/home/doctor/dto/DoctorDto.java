@@ -1,11 +1,14 @@
 package com.patientassistant.home.doctor.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.patientassistant.home.doctor.entity.Clinic;
 import com.patientassistant.home.doctor.entity.Specialty;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+
 @Data
 public class DoctorDto {
     private String uId;
@@ -17,6 +20,7 @@ public class DoctorDto {
     private String imgPath;
     private String specialty;
     private String profTitle;
+    private List<Clinic> clinics;
 
 }
  enum Gender {

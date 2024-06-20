@@ -3,11 +3,17 @@ package com.patientassistant.home.doctor.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "doctor")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Doctor {
     @Id
     private String uId;
@@ -28,99 +34,20 @@ public class Doctor {
     CascadeType.MERGE , CascadeType.REFRESH
     })
     @JoinColumn(name = "specialty_id")
-    @JsonBackReference
+    @JsonBackReference("doctor-speciality")
     private Specialty specialty;
     @Column(name = "professional_title")
     private String profTitle;
 
-    public Doctor() {
-    }
-
-    public Doctor(String id, String name, Date birthDate, String phoneNumber,
-                  String email, Gender gender, String imgPath , String profTitle) {
-        this.uId = id;
-        this.name = name;
-        this.birthDate = birthDate;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.gender = gender;
-        this.imgPath = imgPath;
-        this.profTitle = profTitle;
-    }
-
-    public String getId() {
-        return uId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public String getImgPath() {
-        return imgPath;
-    }
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference("doctor-clinics")
+    private List<Clinic> clinics;
 
     public void setId(String id) {
         this.uId = id;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
-
-    public Specialty getSpecialty() {
-        return specialty;
-    }
-
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
-    }
-
-    public String getProfTitle() {
-        return profTitle;
-    }
-
-    public void setProfTitle(String profTitle) {
-        this.profTitle = profTitle;
+    public String getId() {
+        return uId;
     }
 }
 
-enum Gender{
-    Male , Female
-}

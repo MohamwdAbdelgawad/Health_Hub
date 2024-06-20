@@ -19,7 +19,7 @@ public class Specialty {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "specialty")
-    @JsonManagedReference
+    @JsonManagedReference("doctor-speciality")
     private List<Doctor> doctors;
 
     public long getId() {

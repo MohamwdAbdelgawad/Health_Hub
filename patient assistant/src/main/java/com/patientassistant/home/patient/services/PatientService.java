@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 @Service
 public class PatientService {
@@ -24,7 +25,9 @@ public class PatientService {
         return patientRepository.getPatientsById(id);
     }
     public Patient createPatient(Patient patient){
-        System.out.println(patient);
+        if (patient.getId() == null || patient.getId().isEmpty()) {
+            patient.setUId(UUID.randomUUID().toString()); // or any other logic to generate the ID
+        }
         return patientRepository.save(patient);
     }
     public Patient updatePatient(Patient patient){

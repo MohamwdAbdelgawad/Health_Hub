@@ -1,12 +1,16 @@
 package com.patientassistant.home.doctor.services;
 
+import com.patientassistant.home.doctor.dto.DoctorAvailabilityInput;
 import com.patientassistant.home.doctor.dto.DoctorDto;
+import com.patientassistant.home.doctor.entity.Clinic;
 import com.patientassistant.home.doctor.entity.Doctor;
+import com.patientassistant.home.doctor.entity.DoctorAvailability;
 import com.patientassistant.home.doctor.entity.Specialty;
 import com.patientassistant.home.doctor.repository.DoctorRepository;
 import com.patientassistant.home.patient.entity.Patient;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,16 +18,19 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.DayOfWeek;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
 public class DoctorService {
     private String profilImgDirectory = "D:/Spring/chad project/spring boot 3 and hibernate/Cource code by me/patient assistant/profileImg";
     private DoctorRepository doctorRepository;
+    @Qualifier("doctorModelMapper")
     private ModelMapper modelMapper;
     @Autowired
-    public DoctorService(DoctorRepository doctorRepository , ModelMapper modelMapper){
+    public DoctorService(DoctorRepository doctorRepository , @Qualifier("doctorModelMapper")ModelMapper modelMapper){
        this.doctorRepository = doctorRepository;
        this.modelMapper = modelMapper;
     }
@@ -60,7 +67,7 @@ public class DoctorService {
         try {
             String originalFileName = image.getOriginalFilename();
             String fileExtension = originalFileName.substring(originalFileName.lastIndexOf('.') + 1);
-            String fileName = d.getId() + "_" + System.currentTimeMillis() + "." + fileExtension;
+            String fileName = d.getUId() + "_" + System.currentTimeMillis() + "." + fileExtension;
             String filePath = profilImgDirectory + File.separator + fileName;
             saveImageToFile(image.getBytes(), filePath);
             d.setImgPath(filePath); // Save the file name or path in the UserProfile entity
@@ -78,4 +85,5 @@ public class DoctorService {
             e.printStackTrace(); // Handle the exception appropriately
         }
     }
+
 }
