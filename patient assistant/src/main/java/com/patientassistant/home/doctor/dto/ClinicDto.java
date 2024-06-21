@@ -9,9 +9,11 @@ import java.util.List;
 public class ClinicDto {
     private long id;
     private String name;
-    private double price;
-    private double length;
-    private double width;
+    private String phone;
+    private double examination;
+    private double followUp;
+    private double latitude;
+    private double longitude;
     private String address;
     private String doctorId;
     private List<DoctorAvailability> doctorAvailabilities;

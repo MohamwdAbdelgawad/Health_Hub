@@ -23,9 +23,11 @@ public class Clinic {
     private long id;
     @Column(name = "name")
     private String name;
-    private double price;
-    private double length;
-    private double width;
+    private String phone;
+    private double examination;
+    private double followUp;
+    private double latitude;
+    private double longitude;
     private String address;
     @ManyToOne
     @JsonBackReference("doctor-clinics")
