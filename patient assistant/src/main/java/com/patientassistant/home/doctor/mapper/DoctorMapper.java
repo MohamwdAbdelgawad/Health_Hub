@@ -2,6 +2,7 @@ package com.patientassistant.home.doctor.mapper;
 
 import com.patientassistant.home.doctor.dto.DoctorDto;
 import com.patientassistant.home.doctor.entity.Doctor;
+import com.patientassistant.home.doctor.entity.Rating;
 import com.patientassistant.home.doctor.services.ClinicService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -24,6 +25,7 @@ public class DoctorMapper {
                 map().setUId(source.getUId());
                 map().setSpecialty(source.getSpecialty().getName());
                 map().setClinics(source.getClinics());
+                map().setRating(source.calculateRating());
             }
         });
 

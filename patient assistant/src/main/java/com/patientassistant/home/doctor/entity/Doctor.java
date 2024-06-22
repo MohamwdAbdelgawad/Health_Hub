@@ -42,12 +42,21 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference("doctor-clinics")
     private List<Clinic> clinics;
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference("doctor-rating")
+    private List<Rating> ratings;
 
     public void setId(String id) {
         this.uId = id;
     }
     public String getId() {
         return uId;
+    }
+    public double calculateRating() {
+        return this.getRatings().stream()
+                .mapToDouble(Rating::getRating)
+                .average()
+                .orElse(0.0); // Handle cases where ratings list might be empty
     }
 }
 

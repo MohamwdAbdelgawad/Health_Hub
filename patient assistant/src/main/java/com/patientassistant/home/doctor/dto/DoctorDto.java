@@ -20,6 +20,7 @@ public class DoctorDto {
     private String imgPath;
     private String specialty;
     private String profTitle;
+    private double rating;
     private List<Clinic> clinics;
 
 }
