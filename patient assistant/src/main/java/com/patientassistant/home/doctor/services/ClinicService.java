@@ -82,9 +82,10 @@ public class ClinicService {
         Clinic clinics = clinicRepository.getClinicById(clinicId);
         return convertToDto(clinics);
     }
-    public DoctorDto saveDoctorAvailability(long clinicId, Map<DayOfWeek, DoctorAvailabilityInput> availabilityInput ) {
+    public List<DoctorAvailability> saveDoctorAvailability(long clinicId, Map<DayOfWeek, DoctorAvailabilityInput> availabilityInput ) {
         Clinic clinic = clinicRepository.getClinicById(clinicId);
         Doctor doctor = clinic.getDoctor();
+        List<DoctorAvailability> doctorAvailabilities = new ArrayList<>();
         availabilityInput.forEach((day, doctorAvailabilityInput) -> {
             DoctorAvailability availability = new DoctorAvailability();
             availability.setDoctor(doctor);
@@ -93,14 +94,14 @@ public class ClinicService {
             availability.setDay(day);
             availability.setStartTime(doctorAvailabilityInput.getFrom());
             availability.setEndTime(doctorAvailabilityInput.getTo());
-            doctorAvailabilityService.saveOrUpdateDoctorAvailability(availability);
-
+            DoctorAvailability doctorAvailability =doctorAvailabilityService.saveOrUpdateDoctorAvailability(availability);
+            doctorAvailabilities.add(doctorAvailability);
             if (availability.isAvailable()) {
                makeAppointment(availability);
             }
         });
 
-        return modelMapper.map(doctor , DoctorDto.class);
+        return doctorAvailabilities;
     }
     public void makeAppointment(DoctorAvailability availability){
         int durationInMinutes = 30;

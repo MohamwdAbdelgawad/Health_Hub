@@ -5,6 +5,7 @@ import com.patientassistant.home.doctor.dto.DoctorAvailabilityInput;
 import com.patientassistant.home.doctor.dto.DoctorDto;
 import com.patientassistant.home.doctor.entity.Clinic;
 import com.patientassistant.home.doctor.entity.Doctor;
+import com.patientassistant.home.doctor.entity.DoctorAvailability;
 import com.patientassistant.home.doctor.services.ClinicService;
 import com.patientassistant.home.doctor.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class ClinicController {
         return clinicService.updateClinic(clinic , doctorId);
     }
     @PostMapping("/{clinicId}/availability")
-    public DoctorDto saveDoctorAvailability(@PathVariable Long clinicId, @RequestBody Map<DayOfWeek,
+    public List<DoctorAvailability> saveDoctorAvailability(@PathVariable Long clinicId, @RequestBody Map<DayOfWeek,
             DoctorAvailabilityInput> availabilityInput )
     {
         return clinicService.saveDoctorAvailability(clinicId, availabilityInput);
