@@ -1,0 +1,7 @@
+[
+  "com/patientassistant/home/doctor/controller/DoctorController",
+  "com/patientassistant/home/doctor/dto/Gender",
+  "com/patientassistant/home/doctor/entity/Doctor",
+  "com/patientassistant/home/doctor/repository/DoctorRepository",
+  "com/patientassistant/home/doctor/services/DoctorService"
+]

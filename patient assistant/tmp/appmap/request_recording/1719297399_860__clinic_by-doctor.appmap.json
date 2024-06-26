@@ -1,0 +1,379 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "347a591c-07d5-4649-9df2-1ef3c248f84d",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/clinic/by-doctor",
+        "path_info": "/clinic/by-doctor",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "message": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1266595635,
+          "value": "55"
+        }
+      ],
+      "thread_id": 36
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.ClinicController",
+      "event": "call",
+      "id": 2,
+      "lineno": 43,
+      "method_id": "getClinicByDoctor",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1266595635,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.ClinicController",
+        "object_id": 250197932,
+        "value": "com.patientassistant.home.doctor.controller.ClinicController@ee9b7ac"
+      },
+      "static": false,
+      "thread_id": 36
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.ClinicService",
+      "event": "call",
+      "id": 3,
+      "lineno": 78,
+      "method_id": "getClinicByDoctor",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1266595635,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.ClinicService",
+        "object_id": 1002279474,
+        "value": "com.patientassistant.home.doctor.services.ClinicService@3bbd9232"
+      },
+      "static": false,
+      "thread_id": 36
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.ClinicRepository",
+      "event": "call",
+      "id": 4,
+      "lineno": -1,
+      "method_id": "getClinicsByDoctorId",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 1266595635,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy187",
+        "object_id": 1229192750,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@7e043341"
+      },
+      "static": false,
+      "thread_id": 36
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 left join doctor d1_0 on d1_0.u_id=c1_0.doctor_id where d1_0.u_id=?"
+      },
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 36
+    },
+    {
+      "event": "call",
+      "id": 7,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id where d1_0.u_id=?"
+      },
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 8,
+      "parent_id": 7,
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0.0007999,
+      "event": "return",
+      "id": 9,
+      "parent_id": 4,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1797219390,
+        "value": "< invalid >"
+      },
+      "thread_id": 36
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.ClinicService",
+      "event": "call",
+      "id": 10,
+      "lineno": 61,
+      "method_id": "convertToDto",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.doctor.entity.Clinic",
+          "kind": "req",
+          "name": "clinic",
+          "object_id": 1235237899,
+          "value": "< invalid >"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.ClinicService",
+        "object_id": 1002279474,
+        "value": "com.patientassistant.home.doctor.services.ClinicService@3bbd9232"
+      },
+      "static": false,
+      "thread_id": 36
+    },
+    {
+      "event": "call",
+      "id": 11,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select da1_0.clinic_id,da1_0.id,da1_0.day,da1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,da1_0.end_time,da1_0.is_available,da1_0.start_time from doctor_availability da1_0 left join doctor d1_0 on d1_0.u_id=da1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where da1_0.clinic_id=?"
+      },
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 12,
+      "parent_id": 11,
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0.00079993,
+      "event": "return",
+      "id": 13,
+      "parent_id": 10,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.dto.ClinicDto",
+        "object_id": 1184918744,
+        "value": "< invalid >"
+      },
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0.00159983,
+      "event": "return",
+      "id": 14,
+      "parent_id": 3,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1843476640,
+        "value": "< invalid >"
+      },
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0.00159983,
+      "event": "return",
+      "id": 15,
+      "parent_id": 2,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 390181625,
+        "value": "< invalid >"
+      },
+      "thread_id": 36
+    },
+    {
+      "elapsed": 0.00239983,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:36:39 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 16,
+      "parent_id": 1,
+      "thread_id": 36
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /clinic/by-doctor (200) - 09:36:39.860",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "convertToDto",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:61"
+                            },
+                            {
+                              "name": "getClinicByDoctor",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:78"
+                            }
+                          ],
+                          "name": "ClinicService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getClinicsByDoctorId",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java:-1"
+                            }
+                          ],
+                          "name": "ClinicRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getClinicByDoctor",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:43"
+                            }
+                          ],
+                          "name": "ClinicController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /clinic/by-doctor"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 left join doctor d1_0 on d1_0.u_id=c1_0.doctor_id where d1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id where d1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select da1_0.clinic_id,da1_0.id,da1_0.day,da1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,da1_0.end_time,da1_0.is_available,da1_0.start_time from doctor_availability da1_0 left join doctor d1_0 on d1_0.u_id=da1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where da1_0.clinic_id=?"
+        }
+      ]
+    }
+  ]
+}

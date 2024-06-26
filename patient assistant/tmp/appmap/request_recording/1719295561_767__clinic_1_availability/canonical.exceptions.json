@@ -1,0 +1,21 @@
+[
+  {
+    "class": "java.lang.NullPointerException",
+    "message": "Cannot invoke \"org.modelmapper.ModelMapper.map(Object, java.lang.Class)\" because \"<local4>.modelMapper\" is null",
+    "stack": [
+      "ClinicService.java:102",
+      "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:39"
+    ],
+    "location": "ClinicService.java:102"
+  },
+  {
+    "class": "java.lang.NullPointerException",
+    "message": "Cannot invoke \"org.modelmapper.ModelMapper.map(Object, java.lang.Class)\" because \"<local4>.modelMapper\" is null",
+    "stack": [
+      "ClinicService.java:102",
+      "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:85",
+      "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:39"
+    ],
+    "location": "ClinicService.java:102"
+  }
+]

@@ -1,0 +1,288 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "bce9bc6f-8aa6-47a7-ae1f-67bd3d0ca376",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/doctor/name/{name}",
+        "path_info": "/doctor/name/mando",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "thread_id": 37
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.DoctorController",
+      "event": "call",
+      "id": 2,
+      "lineno": 45,
+      "method_id": "getDoctorsByName",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "name",
+          "object_id": 917310913,
+          "value": "mando"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/DoctorController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.DoctorController",
+        "object_id": 1631408038,
+        "value": "com.patientassistant.home.doctor.controller.DoctorController@613d4fa6"
+      },
+      "static": false,
+      "thread_id": 37
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.DoctorService",
+      "event": "call",
+      "id": 3,
+      "lineno": 58,
+      "method_id": "getDoctorsByName",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "name",
+          "object_id": 917310913,
+          "value": "mando"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/DoctorService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.DoctorService",
+        "object_id": 246658263,
+        "value": "com.patientassistant.home.doctor.services.DoctorService@eb3b4d7"
+      },
+      "static": false,
+      "thread_id": 37
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.DoctorRepository",
+      "event": "call",
+      "id": 4,
+      "lineno": -1,
+      "method_id": "getDoctorsByName",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 917310913,
+          "value": "mando"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy185",
+        "object_id": 599624887,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@8cfb334"
+      },
+      "static": false,
+      "thread_id": 37
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.name=?"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.00079992,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 413373117,
+        "value": "[]"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.00160307,
+      "event": "return",
+      "id": 8,
+      "parent_id": 3,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1088576720,
+        "value": "[]"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.00160307,
+      "event": "return",
+      "id": 9,
+      "parent_id": 2,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 1088576720,
+        "value": "[]"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.00160307,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:36:50 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 10,
+      "parent_id": 1,
+      "thread_id": 37
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /doctor/name/mando (200) - 09:36:50.378",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getDoctorsByName",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/DoctorService.java:58"
+                            }
+                          ],
+                          "name": "DoctorService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getDoctorsByName",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/DoctorController.java:45"
+                            }
+                          ],
+                          "name": "DoctorController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getDoctorsByName",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java:-1"
+                            }
+                          ],
+                          "name": "DoctorRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /doctor/name/{name}"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.name=?"
+        }
+      ]
+    }
+  ]
+}

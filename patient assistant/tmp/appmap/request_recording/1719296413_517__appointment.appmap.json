@@ -1,0 +1,286 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "date": "2024-03-12",
+          "doctorid": "mmm",
+          "postman-token": "fc6f0882-8877-4b7f-9c01-7f6bcc9342a0",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/appointment",
+        "path_info": "/appointment",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "message": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 346115944,
+          "value": "55"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "dateString",
+          "object_id": 745737954,
+          "value": "2024-06-17"
+        }
+      ],
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.AppointmentController",
+      "event": "call",
+      "id": 2,
+      "lineno": 18,
+      "method_id": "findAvailableAppointmentsForDoctorByDate",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 346115944,
+          "value": "55"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "dateString",
+          "object_id": 745737954,
+          "value": "2024-06-17"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/AppointmentController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.AppointmentController",
+        "object_id": 892204360,
+        "value": "com.patientassistant.home.doctor.controller.AppointmentController@352df548"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.AppointmentService",
+      "event": "call",
+      "id": 3,
+      "lineno": 45,
+      "method_id": "findAvailableAppointmentsForDoctorByDate",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 346115944,
+          "value": "55"
+        },
+        {
+          "class": "java.time.LocalDate",
+          "kind": "req",
+          "name": "date",
+          "object_id": 2083621998,
+          "value": "2024-06-17"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/AppointmentService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.AppointmentService",
+        "object_id": 2083542564,
+        "value": "com.patientassistant.home.doctor.services.AppointmentService@7c305624"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "id": 4,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id where d1_0.u_id=?"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 5,
+      "parent_id": 4,
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select a1_0.id,a1_0.clinic_id,a1_0.day,a1_0.doctor_id,a1_0.end_time,a1_0.is_available,a1_0.start_time from appointment a1_0 where a1_0.doctor_id=? and a1_0.day=?"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.00079987,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.13112807,
+      "event": "return",
+      "id": 8,
+      "parent_id": 3,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 768988086,
+        "value": "[]"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.13112807,
+      "event": "return",
+      "id": 9,
+      "parent_id": 2,
+      "return_value": {
+        "class": "java.util.ArrayList",
+        "object_id": 768988086,
+        "value": "[]"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.1343215,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:20:14 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 10,
+      "parent_id": 1,
+      "thread_id": 38
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /appointment (200) - 09:20:13.517",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "findAvailableAppointmentsForDoctorByDate",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/AppointmentService.java:45"
+                            }
+                          ],
+                          "name": "AppointmentService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "findAvailableAppointmentsForDoctorByDate",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/AppointmentController.java:18"
+                            }
+                          ],
+                          "name": "AppointmentController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /appointment"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id where d1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select a1_0.id,a1_0.clinic_id,a1_0.day,a1_0.doctor_id,a1_0.end_time,a1_0.is_available,a1_0.start_time from appointment a1_0 where a1_0.doctor_id=? and a1_0.day=?"
+        }
+      ]
+    }
+  ]
+}

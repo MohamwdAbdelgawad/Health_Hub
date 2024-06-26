@@ -1,0 +1,6 @@
+[
+  "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?",
+  "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?",
+  "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id where d1_0.u_id=?",
+  "select p1_0.u_id,p1_0.address,p1_0.birth_date,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.img_path,p1_0.last_name,p1_0.phone_number from patient p1_0 where p1_0.u_id=?"
+]

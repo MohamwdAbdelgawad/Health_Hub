@@ -1,0 +1,7 @@
+[
+  "com/patientassistant/home/doctor/controller/BookingController",
+  "com/patientassistant/home/doctor/repository/ClinicRepository",
+  "com/patientassistant/home/doctor/repository/DoctorRepository",
+  "com/patientassistant/home/doctor/services/BookingService",
+  "com/patientassistant/home/patient/repository/PatientRepository"
+]

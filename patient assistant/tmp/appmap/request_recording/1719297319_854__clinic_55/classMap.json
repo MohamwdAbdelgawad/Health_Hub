@@ -1,0 +1,110 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "convertToDto",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:61"
+                          },
+                          {
+                            "name": "addClinic",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:65"
+                          }
+                        ],
+                        "name": "ClinicService",
+                        "type": "class"
+                      }
+                    ],
+                    "name": "services",
+                    "type": "package"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "addClinic",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:29"
+                          }
+                        ],
+                        "name": "ClinicController",
+                        "type": "class"
+                      }
+                    ],
+                    "name": "controller",
+                    "type": "package"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "getDoctorById",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java:-1"
+                          }
+                        ],
+                        "name": "DoctorRepository",
+                        "type": "class"
+                      }
+                    ],
+                    "name": "repository",
+                    "type": "package"
+                  }
+                ],
+                "name": "doctor",
+                "type": "package"
+              }
+            ],
+            "name": "home",
+            "type": "package"
+          }
+        ],
+        "name": "patientassistant",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /clinic/{doctorId}"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+      },
+      {
+        "type": "query",
+        "name": "insert into clinic (address,doctor_id,examination,follow_up,latitude,longitude,name,phone) values (?,?,?,?,?,?,?,?)"
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "caller": "POST /patient",
+    "callee": "com/patientassistant"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "insert into patient (address,birth_date,email,first_name,gender,img_path,last_name,phone_number,u_id) values (?,?,?,?,?,?,?,?,?)"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "select p1_0.u_id,p1_0.address,p1_0.birth_date,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.img_path,p1_0.last_name,p1_0.phone_number from patient p1_0 where p1_0.u_id=?"
+  }
+]

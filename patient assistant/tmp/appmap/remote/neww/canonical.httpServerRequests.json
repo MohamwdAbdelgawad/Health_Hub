@@ -1,0 +1,77 @@
+[
+  {
+    "route": "GET /appointment",
+    "parameters": "(doctorId,dateString)",
+    "status": 200
+  },
+  {
+    "route": "GET /clinic/by-doctor",
+    "parameters": "(doctorId)",
+    "status": 200
+  },
+  {
+    "route": "GET /clinic/by-id",
+    "parameters": "(clinicId)",
+    "status": 200
+  },
+  {
+    "route": "GET /doctor",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /doctor/name/{name}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET /doctor/{id}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "POST /booking",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "POST /booking",
+    "parameters": "()",
+    "status": null
+  },
+  {
+    "route": "POST /clinic/8/availability",
+    "parameters": "()",
+    "status": null
+  },
+  {
+    "route": "POST /clinic/{clinicId}/availability",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "POST /clinic/{doctorId}",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "POST /doctor",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "POST /error",
+    "parameters": "()",
+    "status": 500
+  },
+  {
+    "route": "POST /patient",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "POST /rating/{doctorId}",
+    "parameters": "(rate)",
+    "status": 200
+  }
+]

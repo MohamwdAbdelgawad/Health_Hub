@@ -1,0 +1,104 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "getClinicById",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java:-1"
+                          }
+                        ],
+                        "name": "ClinicRepository",
+                        "type": "class"
+                      }
+                    ],
+                    "name": "repository",
+                    "type": "package"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "saveDoctorAvailability",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:86"
+                          }
+                        ],
+                        "name": "ClinicService",
+                        "type": "class"
+                      }
+                    ],
+                    "name": "services",
+                    "type": "package"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "saveDoctorAvailability",
+                            "type": "function",
+                            "static": false,
+                            "location": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:39"
+                          }
+                        ],
+                        "name": "ClinicController",
+                        "type": "class"
+                      }
+                    ],
+                    "name": "controller",
+                    "type": "package"
+                  }
+                ],
+                "name": "doctor",
+                "type": "package"
+              }
+            ],
+            "name": "home",
+            "type": "package"
+          }
+        ],
+        "name": "patientassistant",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  },
+  {
+    "type": "http",
+    "name": "HTTP server requests",
+    "children": [
+      {
+        "type": "route",
+        "name": "POST /clinic/8/availability"
+      },
+      {
+        "type": "route",
+        "name": "POST /error"
+      }
+    ]
+  },
+  {
+    "type": "database",
+    "name": "Database",
+    "children": [
+      {
+        "type": "query",
+        "name": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?"
+      }
+    ]
+  }
+]

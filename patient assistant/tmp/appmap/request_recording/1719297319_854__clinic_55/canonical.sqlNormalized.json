@@ -1,0 +1,4 @@
+[
+  "insert into clinic (address,doctor_id,examination,follow_up,latitude,longitude,name,phone) values (?,?,?,?,?,?,?,?)",
+  "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+]

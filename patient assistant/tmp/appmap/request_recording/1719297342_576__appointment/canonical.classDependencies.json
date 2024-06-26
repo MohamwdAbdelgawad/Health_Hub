@@ -1,0 +1,22 @@
+[
+  {
+    "caller": "GET /appointment",
+    "callee": "com/patientassistant"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "select a1_0.id,a1_0.clinic_id,a1_0.day,a1_0.doctor_id,a1_0.end_time,a1_0.is_available,a1_0.start_time from appointment a1_0 where a1_0.doctor_id=? and a1_0.day=?"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "select b1_0.id,b1_0.booking_date,b1_0.clinic_id,b1_0.doctor_id,b1_0.end_time,b1_0.patient_id,b1_0.start_time from booking b1_0 where b1_0.doctor_id=? and b1_0.booking_date=? and b1_0.start_time=? and b1_0.end_time=?"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "select c1_0.id,c1_0.address,c1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 join doctor d1_0 on d1_0.u_id=c1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where c1_0.id=?"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id where d1_0.u_id=?"
+  }
+]

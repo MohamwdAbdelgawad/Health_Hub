@@ -1,0 +1,4 @@
+[
+  "com/patientassistant/home/doctor/controller/AppointmentController",
+  "com/patientassistant/home/doctor/services/AppointmentService"
+]

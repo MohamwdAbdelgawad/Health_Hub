@@ -1,0 +1,7 @@
+[
+  {
+    "route": "POST /rating/{doctorId}",
+    "parameters": "(rate)",
+    "status": 200
+  }
+]

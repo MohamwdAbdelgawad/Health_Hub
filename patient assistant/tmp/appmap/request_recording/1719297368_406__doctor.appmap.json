@@ -1,0 +1,231 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "postman-token": "fb2e7dab-3957-470c-be95-ef75b66920c8",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/doctor",
+        "path_info": "/doctor",
+        "protocol": "HTTP/1.1",
+        "request_method": "GET"
+      },
+      "id": 1,
+      "thread_id": 33
+    },
+    {
+      "event": "call",
+      "id": 2,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0"
+      },
+      "thread_id": 33
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 3,
+      "parent_id": 2,
+      "thread_id": 33
+    },
+    {
+      "event": "call",
+      "id": 4,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select c1_0.doctor_id,c1_0.id,c1_0.address,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.doctor_id=?"
+      },
+      "thread_id": 33
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 5,
+      "parent_id": 4,
+      "thread_id": 33
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.entity.Doctor",
+      "event": "call",
+      "id": 6,
+      "lineno": 56,
+      "method_id": "calculateRating",
+      "path": "src/main/java/com/patientassistant/home/doctor/entity/Doctor.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.entity.Doctor",
+        "object_id": 581431455,
+        "value": "< invalid >"
+      },
+      "static": false,
+      "thread_id": 33
+    },
+    {
+      "event": "call",
+      "id": 7,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select r1_0.doctor_id,r1_0.id,r1_0.rating from rating r1_0 where r1_0.doctor_id=?"
+      },
+      "thread_id": 33
+    },
+    {
+      "elapsed": 0.0008001,
+      "event": "return",
+      "id": 8,
+      "parent_id": 7,
+      "thread_id": 33
+    },
+    {
+      "elapsed": 0.0008001,
+      "event": "return",
+      "id": 9,
+      "parent_id": 6,
+      "return_value": {
+        "class": "java.lang.Double",
+        "object_id": 956171692,
+        "value": "0.0"
+      },
+      "thread_id": 33
+    },
+    {
+      "event": "call",
+      "id": 10,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select da1_0.clinic_id,da1_0.id,da1_0.day,da1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,da1_0.end_time,da1_0.is_available,da1_0.start_time from doctor_availability da1_0 left join doctor d1_0 on d1_0.u_id=da1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where da1_0.clinic_id=?"
+      },
+      "thread_id": 33
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 11,
+      "parent_id": 10,
+      "thread_id": 33
+    },
+    {
+      "elapsed": 0.00479947,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:36:08 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 12,
+      "parent_id": 1,
+      "thread_id": 33
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "GET /doctor (200) - 09:36:08.406",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "calculateRating",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/entity/Doctor.java:56"
+                            }
+                          ],
+                          "name": "Doctor",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "entity",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "GET /doctor"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0"
+        },
+        {
+          "type": "query",
+          "name": "select c1_0.doctor_id,c1_0.id,c1_0.address,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.doctor_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select r1_0.doctor_id,r1_0.id,r1_0.rating from rating r1_0 where r1_0.doctor_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select da1_0.clinic_id,da1_0.id,da1_0.day,da1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,da1_0.end_time,da1_0.is_available,da1_0.start_time from doctor_availability da1_0 left join doctor d1_0 on d1_0.u_id=da1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where da1_0.clinic_id=?"
+        }
+      ]
+    }
+  ]
+}

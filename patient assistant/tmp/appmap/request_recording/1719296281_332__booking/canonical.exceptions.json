@@ -1,0 +1,40 @@
+[
+  {
+    "class": "org.hibernate.PropertyValueException",
+    "message": "not-null property references a null or transient value : com.patientassistant.home.doctor.entity.Booking.patient",
+    "stack": [
+      "Nullability.java:109",
+      "src/main/java/com/patientassistant/home/doctor/controller/BookingController.java:30"
+    ],
+    "location": "Nullability.java:109"
+  },
+  {
+    "class": "org.hibernate.PropertyValueException",
+    "message": "not-null property references a null or transient value : com.patientassistant.home.doctor.entity.Booking.patient",
+    "stack": [
+      "Nullability.java:109",
+      "src/main/java/com/patientassistant/home/doctor/services/BookingService.java:33",
+      "src/main/java/com/patientassistant/home/doctor/controller/BookingController.java:30"
+    ],
+    "location": "Nullability.java:109"
+  },
+  {
+    "class": "org.springframework.dao.DataIntegrityViolationException",
+    "message": "not-null property references a null or transient value : com.patientassistant.home.doctor.entity.Booking.patient",
+    "stack": [
+      "HibernateJpaDialect.java:307",
+      "src/main/java/com/patientassistant/home/doctor/controller/BookingController.java:30"
+    ],
+    "location": "HibernateJpaDialect.java:307"
+  },
+  {
+    "class": "org.springframework.dao.DataIntegrityViolationException",
+    "message": "not-null property references a null or transient value : com.patientassistant.home.doctor.entity.Booking.patient",
+    "stack": [
+      "HibernateJpaDialect.java:307",
+      "src/main/java/com/patientassistant/home/doctor/services/BookingService.java:33",
+      "src/main/java/com/patientassistant/home/doctor/controller/BookingController.java:30"
+    ],
+    "location": "HibernateJpaDialect.java:307"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  "com/patientassistant/home/doctor/controller",
+  "com/patientassistant/home/doctor/dto",
+  "com/patientassistant/home/doctor/entity",
+  "com/patientassistant/home/doctor/repository",
+  "com/patientassistant/home/doctor/services"
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "caller": "POST /clinic/8/availability",
+    "callee": "com/patientassistant"
+  },
+  {
+    "caller": "com/patientassistant",
+    "callee": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?"
+  }
+]

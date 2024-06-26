@@ -1,0 +1,366 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "169",
+          "postman-token": "bf6b2f2f-1e5e-4355-b0fc-c8d51ea7e667",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/clinic/{doctorId}",
+        "path_info": "/clinic/55",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 40
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.ClinicController",
+      "event": "call",
+      "id": 2,
+      "lineno": 29,
+      "method_id": "addClinic",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.doctor.entity.Clinic",
+          "kind": "req",
+          "name": "clinic",
+          "object_id": 1237490653,
+          "value": "Clinic(id=0, name=giza, phone=015555, examination=250.0, followUp=80.0, latitude=150.0, longitude=55.0, address=fiza, doctor=null, doctorAvailabilities=null, appointments=null, bookings=null)"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1180747784,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.ClinicController",
+        "object_id": 250197932,
+        "value": "com.patientassistant.home.doctor.controller.ClinicController@ee9b7ac"
+      },
+      "static": false,
+      "thread_id": 40
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.ClinicService",
+      "event": "call",
+      "id": 3,
+      "lineno": 65,
+      "method_id": "addClinic",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.doctor.entity.Clinic",
+          "kind": "req",
+          "name": "clinic",
+          "object_id": 1237490653,
+          "value": "Clinic(id=0, name=giza, phone=015555, examination=250.0, followUp=80.0, latitude=150.0, longitude=55.0, address=fiza, doctor=null, doctorAvailabilities=null, appointments=null, bookings=null)"
+        },
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1180747784,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.ClinicService",
+        "object_id": 1002279474,
+        "value": "com.patientassistant.home.doctor.services.ClinicService@3bbd9232"
+      },
+      "static": false,
+      "thread_id": 40
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.DoctorRepository",
+      "event": "call",
+      "id": 4,
+      "lineno": -1,
+      "method_id": "getDoctorById",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 1180747784,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy185",
+        "object_id": 599624887,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@8cfb334"
+      },
+      "static": false,
+      "thread_id": 40
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.00334308,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Doctor",
+        "object_id": 341639478,
+        "value": "Doctor(uId=55, name=sobhy, birthDate=2003-06-22 03:00:00.0, phoneNumber=055555555, email=ss@gmail.com, gender=Male, imgPath=null, specialty=null, profTitle=null, clinics=[], ratings=[])"
+      },
+      "thread_id": 40
+    },
+    {
+      "event": "call",
+      "id": 8,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "insert into clinic (address,doctor_id,examination,follow_up,latitude,longitude,name,phone) values (?,?,?,?,?,?,?,?)"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.00174159,
+      "event": "return",
+      "id": 9,
+      "parent_id": 8,
+      "thread_id": 40
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.ClinicService",
+      "event": "call",
+      "id": 10,
+      "lineno": 61,
+      "method_id": "convertToDto",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.doctor.entity.Clinic",
+          "kind": "req",
+          "name": "clinic",
+          "object_id": 1237490653,
+          "value": "Clinic(id=1, name=giza, phone=015555, examination=250.0, followUp=80.0, latitude=150.0, longitude=55.0, address=fiza, doctor=Doctor(uId=55, name=sobhy, birthDate=2003-06-22 03:00:00.0, phoneNumber=055555555, email=ss@gmail.com, gender=Male, imgPath=null, specialty=null, profTitle=null, clinics=[], ratings=[]), doctorAvailabilities=null, appointments=null, bookings=null)"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.ClinicService",
+        "object_id": 1002279474,
+        "value": "com.patientassistant.home.doctor.services.ClinicService@3bbd9232"
+      },
+      "static": false,
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.00159987,
+      "event": "return",
+      "id": 11,
+      "parent_id": 10,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.dto.ClinicDto",
+        "object_id": 324124906,
+        "value": "ClinicDto(id=1, name=giza, phone=015555, examination=250.0, followUp=80.0, latitude=150.0, longitude=55.0, address=fiza, doctorId=55, doctorAvailabilities=null)"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.01333883,
+      "event": "return",
+      "id": 12,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.dto.ClinicDto",
+        "object_id": 324124906,
+        "value": "ClinicDto(id=1, name=giza, phone=015555, examination=250.0, followUp=80.0, latitude=150.0, longitude=55.0, address=fiza, doctorId=55, doctorAvailabilities=null)"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.01493904,
+      "event": "return",
+      "id": 13,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.dto.ClinicDto",
+        "object_id": 324124906,
+        "value": "ClinicDto(id=1, name=giza, phone=015555, examination=250.0, followUp=80.0, latitude=150.0, longitude=55.0, address=fiza, doctorId=55, doctorAvailabilities=null)"
+      },
+      "thread_id": 40
+    },
+    {
+      "elapsed": 0.01748124,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:35:20 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 14,
+      "parent_id": 1,
+      "thread_id": 40
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /clinic/55 (200) - 09:35:19.854",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "convertToDto",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:61"
+                            },
+                            {
+                              "name": "addClinic",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:65"
+                            }
+                          ],
+                          "name": "ClinicService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "addClinic",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:29"
+                            }
+                          ],
+                          "name": "ClinicController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getDoctorById",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java:-1"
+                            }
+                          ],
+                          "name": "DoctorRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /clinic/{doctorId}"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "insert into clinic (address,doctor_id,examination,follow_up,latitude,longitude,name,phone) values (?,?,?,?,?,?,?,?)"
+        }
+      ]
+    }
+  ]
+}

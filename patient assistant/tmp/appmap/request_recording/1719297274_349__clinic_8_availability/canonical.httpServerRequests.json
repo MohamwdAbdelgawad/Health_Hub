@@ -1,0 +1,12 @@
+[
+  {
+    "route": "POST /clinic/8/availability",
+    "parameters": "()",
+    "status": null
+  },
+  {
+    "route": "POST /error",
+    "parameters": "()",
+    "status": 500
+  }
+]

@@ -1,0 +1,353 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "597",
+          "postman-token": "995ebd56-2784-470b-b9dd-d655496a3f9d",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "path_info": "/clinic/8/availability",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 37
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.ClinicController",
+      "event": "call",
+      "id": 2,
+      "lineno": 39,
+      "method_id": "saveDoctorAvailability",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "clinicId",
+          "object_id": 946071808,
+          "value": "8"
+        },
+        {
+          "class": "java.util.LinkedHashMap",
+          "kind": "req",
+          "name": "availabilityInput",
+          "object_id": 316251893,
+          "value": "{MONDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), TUESDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), WEDNESDAY=DoctorAvailabilityInput(status=false, from=00:00, to=00:00), THURSDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), FRIDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), SATURDAY=DoctorAvailabilityInput(status=false, from=00:00, to=00:00), SUNDAY=DoctorAvailabilityInput(status=false, from=00:00, to=00:00)}"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.ClinicController",
+        "object_id": 250197932,
+        "value": "com.patientassistant.home.doctor.controller.ClinicController@ee9b7ac"
+      },
+      "static": false,
+      "thread_id": 37
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.ClinicService",
+      "event": "call",
+      "id": 3,
+      "lineno": 86,
+      "method_id": "saveDoctorAvailability",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "clinicId",
+          "object_id": 946071808,
+          "value": "8"
+        },
+        {
+          "class": "java.util.LinkedHashMap",
+          "kind": "req",
+          "name": "availabilityInput",
+          "object_id": 316251893,
+          "value": "{MONDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), TUESDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), WEDNESDAY=DoctorAvailabilityInput(status=false, from=00:00, to=00:00), THURSDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), FRIDAY=DoctorAvailabilityInput(status=true, from=09:00, to=17:00), SATURDAY=DoctorAvailabilityInput(status=false, from=00:00, to=00:00), SUNDAY=DoctorAvailabilityInput(status=false, from=00:00, to=00:00)}"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.ClinicService",
+        "object_id": 1002279474,
+        "value": "com.patientassistant.home.doctor.services.ClinicService@3bbd9232"
+      },
+      "static": false,
+      "thread_id": 37
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.ClinicRepository",
+      "event": "call",
+      "id": 4,
+      "lineno": -1,
+      "method_id": "getClinicById",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 946071808,
+          "value": "8"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy187",
+        "object_id": 1229192750,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@7e043341"
+      },
+      "static": false,
+      "thread_id": 37
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?"
+      },
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.02246069,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.02406041,
+      "event": "return",
+      "exceptions": [
+        {
+          "class": "java.lang.NullPointerException",
+          "lineno": 87,
+          "message": "Cannot invoke \"com.patientassistant.home.doctor.entity.Clinic.getDoctor()\" because \"clinic\" is null",
+          "object_id": 793856093,
+          "path": "ClinicService.java"
+        }
+      ],
+      "id": 8,
+      "parent_id": 3,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.02406041,
+      "event": "return",
+      "exceptions": [
+        {
+          "class": "java.lang.NullPointerException",
+          "lineno": 87,
+          "message": "Cannot invoke \"com.patientassistant.home.doctor.entity.Clinic.getDoctor()\" because \"clinic\" is null",
+          "object_id": 793856093,
+          "path": "ClinicService.java"
+        }
+      ],
+      "id": 9,
+      "parent_id": 2,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.02763071,
+      "event": "return",
+      "exceptions": [
+        {
+          "class": "jakarta.servlet.ServletException",
+          "lineno": 1022,
+          "message": "Request processing failed: java.lang.NullPointerException: Cannot invoke \"com.patientassistant.home.doctor.entity.Clinic.getDoctor()\" because \"clinic\" is null",
+          "object_id": 326096715,
+          "path": "FrameworkServlet.java"
+        },
+        {
+          "class": "java.lang.NullPointerException",
+          "lineno": 87,
+          "message": "Cannot invoke \"com.patientassistant.home.doctor.entity.Clinic.getDoctor()\" because \"clinic\" is null",
+          "object_id": 793856093,
+          "path": "ClinicService.java"
+        }
+      ],
+      "id": 10,
+      "parent_id": 1,
+      "thread_id": 37
+    },
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "597",
+          "postman-token": "995ebd56-2784-470b-b9dd-d655496a3f9d",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/error",
+        "path_info": "/error",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 11,
+      "thread_id": 37
+    },
+    {
+      "elapsed": 0.00164009,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Date": "Tue, 25 Jun 2024 06:34:34 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 500
+      },
+      "id": 12,
+      "parent_id": 11,
+      "thread_id": 37
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /clinic/8/availability (500) - 09:34:34.349",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getClinicById",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java:-1"
+                            }
+                          ],
+                          "name": "ClinicRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "saveDoctorAvailability",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:86"
+                            }
+                          ],
+                          "name": "ClinicService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "saveDoctorAvailability",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:39"
+                            }
+                          ],
+                          "name": "ClinicController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /clinic/8/availability"
+        },
+        {
+          "type": "route",
+          "name": "POST /error"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "169",
+          "postman-token": "9208af6b-c7ad-4f03-94d4-86e8c4a24446",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/booking",
+        "path_info": "/booking",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 41
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.BookingController",
+      "event": "call",
+      "id": 2,
+      "lineno": 30,
+      "method_id": "addBooking",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.doctor.dto.BookingInput",
+          "kind": "req",
+          "name": "bookingInput",
+          "object_id": 464938973,
+          "value": "BookingInput(doctorId=55, clinicId=1, startTime=10:00, endTime=10:30, bookingDate=2024-06-17, patientId=1234567)"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/BookingController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.BookingController",
+        "object_id": 501714839,
+        "value": "com.patientassistant.home.doctor.controller.BookingController@1de78f97"
+      },
+      "static": false,
+      "thread_id": 41
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.BookingService",
+      "event": "call",
+      "id": 3,
+      "lineno": 33,
+      "method_id": "createBooking",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.doctor.dto.BookingInput",
+          "kind": "req",
+          "name": "bookingInput",
+          "object_id": 464938973,
+          "value": "BookingInput(doctorId=55, clinicId=1, startTime=10:00, endTime=10:30, bookingDate=2024-06-17, patientId=1234567)"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/BookingService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.BookingService",
+        "object_id": 1426358954,
+        "value": "com.patientassistant.home.doctor.services.BookingService@550482aa"
+      },
+      "static": false,
+      "thread_id": 41
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.DoctorRepository",
+      "event": "call",
+      "id": 4,
+      "lineno": -1,
+      "method_id": "getDoctorById",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 1064310958,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy185",
+        "object_id": 599624887,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@8cfb334"
+      },
+      "static": false,
+      "thread_id": 41
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Doctor",
+        "object_id": 1746547560,
+        "value": "< invalid >"
+      },
+      "thread_id": 41
+    },
+    {
+      "defined_class": "com.patientassistant.home.patient.repository.PatientRepository",
+      "event": "call",
+      "id": 8,
+      "lineno": -1,
+      "method_id": "getPatientsById",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 688837288,
+          "value": "1234567"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/patient/repository/PatientRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy186",
+        "object_id": 131474460,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@6a912f95"
+      },
+      "static": false,
+      "thread_id": 41
+    },
+    {
+      "event": "call",
+      "id": 9,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select p1_0.u_id,p1_0.address,p1_0.birth_date,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.img_path,p1_0.last_name,p1_0.phone_number from patient p1_0 where p1_0.u_id=?"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 10,
+      "parent_id": 9,
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0.00160014,
+      "event": "return",
+      "id": 11,
+      "parent_id": 8,
+      "return_value": {
+        "class": "com.patientassistant.home.patient.entity.Patient",
+        "object_id": 424738713,
+        "value": "com.patientassistant.home.patient.entity.Patient@1950ff99"
+      },
+      "thread_id": 41
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.ClinicRepository",
+      "event": "call",
+      "id": 12,
+      "lineno": -1,
+      "method_id": "getClinicById",
+      "parameters": [
+        {
+          "class": "java.lang.Long",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 606928476,
+          "value": "1"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy187",
+        "object_id": 1229192750,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@7e043341"
+      },
+      "static": false,
+      "thread_id": 41
+    },
+    {
+      "event": "call",
+      "id": 13,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 14,
+      "parent_id": 13,
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 15,
+      "parent_id": 12,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Clinic",
+        "object_id": 1499992712,
+        "value": "< invalid >"
+      },
+      "thread_id": 41
+    },
+    {
+      "event": "call",
+      "id": 16,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "insert into booking (booking_date,clinic_id,doctor_id,end_time,patient_id,start_time) values (?,?,?,?,?,?)"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 17,
+      "parent_id": 16,
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0.00239989,
+      "event": "return",
+      "id": 18,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Booking",
+        "object_id": 1926396739,
+        "value": "< invalid >"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0.00239989,
+      "event": "return",
+      "id": 19,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Booking",
+        "object_id": 1926396739,
+        "value": "< invalid >"
+      },
+      "thread_id": 41
+    },
+    {
+      "event": "call",
+      "id": 20,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select da1_0.clinic_id,da1_0.id,da1_0.day,da1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,da1_0.end_time,da1_0.is_available,da1_0.start_time from doctor_availability da1_0 left join doctor d1_0 on d1_0.u_id=da1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where da1_0.clinic_id=?"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0.00091919,
+      "event": "return",
+      "id": 21,
+      "parent_id": 20,
+      "thread_id": 41
+    },
+    {
+      "event": "call",
+      "id": 22,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select r1_0.doctor_id,r1_0.id,r1_0.rating from rating r1_0 where r1_0.doctor_id=?"
+      },
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 23,
+      "parent_id": 22,
+      "thread_id": 41
+    },
+    {
+      "elapsed": 0.00491923,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:37:19 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 24,
+      "parent_id": 1,
+      "thread_id": 41
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /booking (200) - 09:37:19.606",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getPatientsById",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/patient/repository/PatientRepository.java:-1"
+                            }
+                          ],
+                          "name": "PatientRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "patient",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getClinicById",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/ClinicRepository.java:-1"
+                            }
+                          ],
+                          "name": "ClinicRepository",
+                          "type": "class"
+                        },
+                        {
+                          "children": [
+                            {
+                              "name": "getDoctorById",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java:-1"
+                            }
+                          ],
+                          "name": "DoctorRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "createBooking",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/BookingService.java:33"
+                            }
+                          ],
+                          "name": "BookingService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "addBooking",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/BookingController.java:30"
+                            }
+                          ],
+                          "name": "BookingController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /booking"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select p1_0.u_id,p1_0.address,p1_0.birth_date,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.img_path,p1_0.last_name,p1_0.phone_number from patient p1_0 where p1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select c1_0.id,c1_0.address,c1_0.doctor_id,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from clinic c1_0 where c1_0.id=?"
+        },
+        {
+          "type": "query",
+          "name": "insert into booking (booking_date,clinic_id,doctor_id,end_time,patient_id,start_time) values (?,?,?,?,?,?)"
+        },
+        {
+          "type": "query",
+          "name": "select da1_0.clinic_id,da1_0.id,da1_0.day,da1_0.doctor_id,d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,da1_0.end_time,da1_0.is_available,da1_0.start_time from doctor_availability da1_0 left join doctor d1_0 on d1_0.u_id=da1_0.doctor_id left join specialty s1_0 on s1_0.id=d1_0.specialty_id where da1_0.clinic_id=?"
+        },
+        {
+          "type": "query",
+          "name": "select r1_0.doctor_id,r1_0.id,r1_0.rating from rating r1_0 where r1_0.doctor_id=?"
+        }
+      ]
+    }
+  ]
+}

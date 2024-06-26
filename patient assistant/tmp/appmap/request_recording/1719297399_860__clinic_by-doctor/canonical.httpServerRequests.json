@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /clinic/by-doctor",
+    "parameters": "(doctorId)",
+    "status": 200
+  }
+]

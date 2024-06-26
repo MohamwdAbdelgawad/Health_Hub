@@ -1,0 +1,256 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "284",
+          "postman-token": "cf6821cd-9905-477d-be5e-cdda7890aa7b",
+          "host": "localhost:8080",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/patient",
+        "path_info": "/patient",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 34
+    },
+    {
+      "defined_class": "com.patientassistant.home.patient.controller.PatientController",
+      "event": "call",
+      "id": 2,
+      "lineno": 22,
+      "method_id": "createPatient",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.patient.entity.Patient",
+          "kind": "req",
+          "name": "patient",
+          "object_id": 1904560719,
+          "value": "com.patientassistant.home.patient.entity.Patient@71854a4f"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/patient/controller/PatientController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.patient.controller.PatientController",
+        "object_id": 1700393038,
+        "value": "com.patientassistant.home.patient.controller.PatientController@6559f04e"
+      },
+      "static": false,
+      "thread_id": 34
+    },
+    {
+      "defined_class": "com.patientassistant.home.patient.services.PatientService",
+      "event": "call",
+      "id": 3,
+      "lineno": 28,
+      "method_id": "createPatient",
+      "parameters": [
+        {
+          "class": "com.patientassistant.home.patient.entity.Patient",
+          "kind": "req",
+          "name": "patient",
+          "object_id": 1904560719,
+          "value": "com.patientassistant.home.patient.entity.Patient@71854a4f"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/patient/services/PatientService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.patient.services.PatientService",
+        "object_id": 957817027,
+        "value": "com.patientassistant.home.patient.services.PatientService@391720c3"
+      },
+      "static": false,
+      "thread_id": 34
+    },
+    {
+      "event": "call",
+      "id": 4,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select p1_0.u_id,p1_0.address,p1_0.birth_date,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.img_path,p1_0.last_name,p1_0.phone_number from patient p1_0 where p1_0.u_id=?"
+      },
+      "thread_id": 34
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 5,
+      "parent_id": 4,
+      "thread_id": 34
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "update patient set address=?,birth_date=?,email=?,first_name=?,gender=?,img_path=?,last_name=?,phone_number=? where u_id=?"
+      },
+      "thread_id": 34
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 34
+    },
+    {
+      "elapsed": 0.13621046,
+      "event": "return",
+      "id": 8,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.patientassistant.home.patient.entity.Patient",
+        "object_id": 296400128,
+        "value": "com.patientassistant.home.patient.entity.Patient@11aab500"
+      },
+      "thread_id": 34
+    },
+    {
+      "elapsed": 0.1363103,
+      "event": "return",
+      "id": 9,
+      "parent_id": 2,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 832782875,
+        "value": "<200 OK OK,com.patientassistant.home.patient.entity.Patient@11aab500,[]>"
+      },
+      "thread_id": 34
+    },
+    {
+      "elapsed": 0.13710968,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:16:12 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 10,
+      "parent_id": 1,
+      "thread_id": 34
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /patient (200) - 09:16:11.053",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "createPatient",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/patient/controller/PatientController.java:22"
+                            }
+                          ],
+                          "name": "PatientController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "createPatient",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/patient/services/PatientService.java:28"
+                            }
+                          ],
+                          "name": "PatientService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "patient",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /patient"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select p1_0.u_id,p1_0.address,p1_0.birth_date,p1_0.email,p1_0.first_name,p1_0.gender,p1_0.img_path,p1_0.last_name,p1_0.phone_number from patient p1_0 where p1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "update patient set address=?,birth_date=?,email=?,first_name=?,gender=?,img_path=?,last_name=?,phone_number=? where u_id=?"
+        }
+      ]
+    }
+  ]
+}

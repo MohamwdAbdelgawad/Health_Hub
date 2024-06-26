@@ -1,0 +1,21 @@
+[
+  "appointment",
+  "availability",
+  "availabilityInput",
+  "bookingInput",
+  "clinic",
+  "clinicId",
+  "d",
+  "date",
+  "dateString",
+  "doctorAvailability",
+  "doctorId",
+  "id",
+  "name",
+  "p0",
+  "p1",
+  "p2",
+  "patient",
+  "rate",
+  "rating"
+]

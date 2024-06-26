@@ -1,0 +1,11 @@
+[
+  "com/patientassistant/home/doctor/controller/ClinicController",
+  "com/patientassistant/home/doctor/dto/Gender",
+  "com/patientassistant/home/doctor/entity/Doctor",
+  "com/patientassistant/home/doctor/repository/AppointmentRepository",
+  "com/patientassistant/home/doctor/repository/ClinicRepository",
+  "com/patientassistant/home/doctor/repository/DoctorAvailabilityRepository",
+  "com/patientassistant/home/doctor/services/AppointmentService",
+  "com/patientassistant/home/doctor/services/ClinicService",
+  "com/patientassistant/home/doctor/services/DoctorAvailabilityService"
+]

@@ -46,7 +46,8 @@ public class ClinicService {
                          DoctorAvailabilityService doctorAvailabilityService,
                           DoctorService doctorService,
                          AppointmentService appointmentRepository ,
-                         @Qualifier("clinicModelMapper") ModelMapper clinicMapper){
+                         @Qualifier("clinicModelMapper") ModelMapper clinicMapper,
+                         @Qualifier("doctorModelMapper") ModelMapper modelMapper){
        this.clinicRepository = clinicRepository;
        this.doctorRepository = doctorRepository;
        this.doctorAvailabilityRepository = doctorAvailabilityRepository;

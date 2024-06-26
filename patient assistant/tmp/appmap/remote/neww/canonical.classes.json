@@ -1,0 +1,22 @@
+[
+  "com/patientassistant/home/doctor/controller/AppointmentController",
+  "com/patientassistant/home/doctor/controller/BookingController",
+  "com/patientassistant/home/doctor/controller/ClinicController",
+  "com/patientassistant/home/doctor/controller/DoctorController",
+  "com/patientassistant/home/doctor/controller/RatingController",
+  "com/patientassistant/home/doctor/dto/Gender",
+  "com/patientassistant/home/doctor/entity/Doctor",
+  "com/patientassistant/home/doctor/repository/AppointmentRepository",
+  "com/patientassistant/home/doctor/repository/ClinicRepository",
+  "com/patientassistant/home/doctor/repository/DoctorAvailabilityRepository",
+  "com/patientassistant/home/doctor/repository/DoctorRepository",
+  "com/patientassistant/home/doctor/services/AppointmentService",
+  "com/patientassistant/home/doctor/services/BookingService",
+  "com/patientassistant/home/doctor/services/ClinicService",
+  "com/patientassistant/home/doctor/services/DoctorAvailabilityService",
+  "com/patientassistant/home/doctor/services/DoctorService",
+  "com/patientassistant/home/doctor/services/RatingService",
+  "com/patientassistant/home/patient/controller/PatientController",
+  "com/patientassistant/home/patient/repository/PatientRepository",
+  "com/patientassistant/home/patient/services/PatientService"
+]

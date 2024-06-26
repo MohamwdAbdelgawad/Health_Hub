@@ -1,0 +1,7 @@
+[
+  {
+    "route": "POST /booking",
+    "parameters": "()",
+    "status": 200
+  }
+]

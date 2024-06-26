@@ -1,0 +1,332 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "0",
+          "postman-token": "c9006cff-bd39-4d71-a85c-3ba328f86ee7",
+          "host": "localhost:8080",
+          "connection": "keep-alive",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.39.0",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/rating/{doctorId}",
+        "path_info": "/rating/55",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "message": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "rate",
+          "object_id": 1631756535,
+          "value": "3"
+        }
+      ],
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.controller.RatingController",
+      "event": "call",
+      "id": 2,
+      "lineno": 19,
+      "method_id": "rateDoctor",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1088855363,
+          "value": "55"
+        },
+        {
+          "class": "java.lang.Integer",
+          "kind": "req",
+          "name": "rate",
+          "object_id": 1678434985,
+          "value": "3"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/controller/RatingController.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.controller.RatingController",
+        "object_id": 2055495569,
+        "value": "com.patientassistant.home.doctor.controller.RatingController@7a845f91"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.services.RatingService",
+      "event": "call",
+      "id": 3,
+      "lineno": 24,
+      "method_id": "rateDoctor",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "doctorId",
+          "object_id": 1088855363,
+          "value": "55"
+        },
+        {
+          "class": "java.lang.Integer",
+          "kind": "req",
+          "name": "rating",
+          "object_id": 1678434985,
+          "value": "3"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/services/RatingService.java",
+      "receiver": {
+        "class": "com.patientassistant.home.doctor.services.RatingService",
+        "object_id": 1112743451,
+        "value": "com.patientassistant.home.doctor.services.RatingService@42531e1b"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "defined_class": "com.patientassistant.home.doctor.repository.DoctorRepository",
+      "event": "call",
+      "id": 4,
+      "lineno": -1,
+      "method_id": "getDoctorById",
+      "parameters": [
+        {
+          "class": "java.lang.String",
+          "kind": "req",
+          "name": "p0",
+          "object_id": 1088855363,
+          "value": "55"
+        }
+      ],
+      "path": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java",
+      "receiver": {
+        "class": "jdk.proxy2.$Proxy185",
+        "object_id": 599624887,
+        "value": "org.springframework.data.jpa.repository.support.SimpleJpaRepository@8cfb334"
+      },
+      "static": false,
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 6,
+      "parent_id": 5,
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0,
+      "event": "return",
+      "id": 7,
+      "parent_id": 4,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Doctor",
+        "object_id": 1987912608,
+        "value": "< invalid >"
+      },
+      "thread_id": 38
+    },
+    {
+      "event": "call",
+      "id": 8,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "insert into rating (doctor_id,rating) values (?,?)"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.00080117,
+      "event": "return",
+      "id": 9,
+      "parent_id": 8,
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.00160139,
+      "event": "return",
+      "id": 10,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.patientassistant.home.doctor.entity.Rating",
+        "object_id": 1304152834,
+        "value": "< invalid >"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.00160139,
+      "event": "return",
+      "id": 11,
+      "parent_id": 2,
+      "return_value": {
+        "class": "org.springframework.http.ResponseEntity",
+        "object_id": 928827065,
+        "value": "< invalid >"
+      },
+      "thread_id": 38
+    },
+    {
+      "elapsed": 0.00479533,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 25 Jun 2024 06:37:03 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 12,
+      "parent_id": 1,
+      "thread_id": 38
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "POST /rating/55 (200) - 09:37:03.699",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "request_recording",
+      "type": "requests"
+    },
+    "recording": {},
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    }
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "rateDoctor",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/controller/RatingController.java:19"
+                            }
+                          ],
+                          "name": "RatingController",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "controller",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "rateDoctor",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/services/RatingService.java:24"
+                            }
+                          ],
+                          "name": "RatingService",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "services",
+                      "type": "package"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "name": "getDoctorById",
+                              "type": "function",
+                              "static": false,
+                              "location": "src/main/java/com/patientassistant/home/doctor/repository/DoctorRepository.java:-1"
+                            }
+                          ],
+                          "name": "DoctorRepository",
+                          "type": "class"
+                        }
+                      ],
+                      "name": "repository",
+                      "type": "package"
+                    }
+                  ],
+                  "name": "doctor",
+                  "type": "package"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /rating/{doctorId}"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,d1_0.specialty_id from doctor d1_0 where d1_0.u_id=?"
+        },
+        {
+          "type": "query",
+          "name": "insert into rating (doctor_id,rating) values (?,?)"
+        }
+      ]
+    }
+  ]
+}

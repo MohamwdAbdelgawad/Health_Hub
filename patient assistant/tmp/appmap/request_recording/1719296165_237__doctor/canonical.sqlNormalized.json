@@ -1,0 +1,4 @@
+[
+  "select d1_0.u_id,d1_0.birth_date,d1_0.email,d1_0.gender,d1_0.img_path,d1_0.name,d1_0.phone_number,d1_0.professional_title,s1_0.id,s1_0.name,c1_0.doctor_id,c1_0.id,c1_0.address,c1_0.examination,c1_0.follow_up,c1_0.latitude,c1_0.longitude,c1_0.name,c1_0.phone from doctor d1_0 left join specialty s1_0 on s1_0.id=d1_0.specialty_id left join clinic c1_0 on d1_0.u_id=c1_0.doctor_id where d1_0.u_id=?",
+  "select r1_0.doctor_id,r1_0.id,r1_0.rating from rating r1_0 where r1_0.doctor_id=?"
+]

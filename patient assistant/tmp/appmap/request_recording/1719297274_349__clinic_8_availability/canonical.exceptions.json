@@ -1,0 +1,21 @@
+[
+  {
+    "class": "java.lang.NullPointerException",
+    "message": "Cannot invoke \"com.patientassistant.home.doctor.entity.Clinic.getDoctor()\" because \"clinic\" is null",
+    "stack": [
+      "ClinicService.java:87",
+      "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:39"
+    ],
+    "location": "ClinicService.java:87"
+  },
+  {
+    "class": "java.lang.NullPointerException",
+    "message": "Cannot invoke \"com.patientassistant.home.doctor.entity.Clinic.getDoctor()\" because \"clinic\" is null",
+    "stack": [
+      "ClinicService.java:87",
+      "src/main/java/com/patientassistant/home/doctor/services/ClinicService.java:86",
+      "src/main/java/com/patientassistant/home/doctor/controller/ClinicController.java:39"
+    ],
+    "location": "ClinicService.java:87"
+  }
+]

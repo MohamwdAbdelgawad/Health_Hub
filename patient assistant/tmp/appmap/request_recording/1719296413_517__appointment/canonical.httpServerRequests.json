@@ -1,0 +1,7 @@
+[
+  {
+    "route": "GET /appointment",
+    "parameters": "(doctorId,dateString)",
+    "status": 200
+  }
+]

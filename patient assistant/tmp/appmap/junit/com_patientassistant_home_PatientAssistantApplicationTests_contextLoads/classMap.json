@@ -1,0 +1,32 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "name": "contextLoads",
+                    "type": "function",
+                    "static": false,
+                    "location": "src/test/java/com/patientassistant/home/PatientAssistantApplicationTests.java:11"
+                  }
+                ],
+                "name": "PatientAssistantApplicationTests",
+                "type": "class"
+              }
+            ],
+            "name": "home",
+            "type": "package"
+          }
+        ],
+        "name": "patientassistant",
+        "type": "package"
+      }
+    ],
+    "name": "com",
+    "type": "package"
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "events": [
+    {
+      "defined_class": "com.patientassistant.home.PatientAssistantApplicationTests",
+      "event": "call",
+      "id": 1,
+      "lineno": 11,
+      "method_id": "contextLoads",
+      "path": "src/test/java/com/patientassistant/home/PatientAssistantApplicationTests.java",
+      "receiver": {
+        "class": "com.patientassistant.home.PatientAssistantApplicationTests",
+        "object_id": 1214122390,
+        "value": "com.patientassistant.home.PatientAssistantApplicationTests@485e0996"
+      },
+      "static": false,
+      "thread_id": 1
+    },
+    {
+      "elapsed": 0.00009991,
+      "event": "return",
+      "id": 2,
+      "parent_id": 1,
+      "thread_id": 1
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "Patient assistant applications context loads",
+    "app": "patient assistant",
+    "language": {
+      "name": "java",
+      "version": "17.0.11+7-LTS-207",
+      "engine": "Java HotSpot(TM) 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "junit",
+      "type": "tests"
+    },
+    "recording": {
+      "defined_class": "com.patientassistant.home.PatientAssistantApplicationTests",
+      "method_id": "contextLoads"
+    },
+    "git": {
+      "repository": "https://github.com/MohamwdAbdelgawad/Health_Hub.git",
+      "branch": "main",
+      "commit": "c2a0ff807d999f571cb2be569d0ed8222d09d59c"
+    },
+    "source_location": "src/test/java/com/patientassistant/home/PatientAssistantApplicationTests.java:11",
+    "frameworks": [
+      {
+        "name": "JUnit",
+        "version": "5"
+      }
+    ],
+    "test_status": "succeeded"
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "name": "contextLoads",
+                      "type": "function",
+                      "static": false,
+                      "location": "src/test/java/com/patientassistant/home/PatientAssistantApplicationTests.java:11"
+                    }
+                  ],
+                  "name": "PatientAssistantApplicationTests",
+                  "type": "class"
+                }
+              ],
+              "name": "home",
+              "type": "package"
+            }
+          ],
+          "name": "patientassistant",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    }
+  ]
+}
