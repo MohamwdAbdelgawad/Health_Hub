@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -49,8 +50,12 @@ public class DoctorController {
         return doctorService.getDoctorsBySpecialtyId(id);
     }
     @PostMapping("/img/{id}")
-    public void updateDoctorImage(@PathVariable String id , @RequestParam MultipartFile image){
-        doctorService.updateImage(id , image);
+    public String updateDoctorImage(@PathVariable String id , @RequestParam MultipartFile image){
+        try {
+          return  doctorService.updateImage(id , image);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

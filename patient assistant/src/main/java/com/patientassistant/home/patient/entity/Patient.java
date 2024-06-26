@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "patient")
-public class Patient {
+public class Patient  {
     @Id
     private String uId;
     @Column(name = "first_name")

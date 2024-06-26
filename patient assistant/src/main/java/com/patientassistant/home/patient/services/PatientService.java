@@ -1,5 +1,7 @@
 package com.patientassistant.home.patient.services;
 
+import com.patientassistant.home.aws.service.ImageUploadService;
+import com.patientassistant.home.doctor.entity.Doctor;
 import com.patientassistant.home.patient.entity.Patient;
 import com.patientassistant.home.patient.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,11 @@ import java.util.UUID;
 public class PatientService {
     private String profilImgDirectory = "D:/Spring/chad project/spring boot 3 and hibernate/Cource code by me/patient assistant/profileImg";
     private PatientRepository patientRepository;
+    private ImageUploadService imageUploadService;
     @Autowired
-    public PatientService(PatientRepository patientRepository){
+    public PatientService(PatientRepository patientRepository , ImageUploadService imageUploadService){
         this.patientRepository  = patientRepository;
+        this.imageUploadService = imageUploadService;
     }
     public Patient getPatientById(String id){
         return patientRepository.getPatientsById(id);
@@ -37,19 +41,23 @@ public class PatientService {
          patientRepository.delete(patient);
 
     }
-    public void updateImage(String id , MultipartFile image){
-        Patient p = getPatientById(id);
-        try {
-            String originalFileName = image.getOriginalFilename();
-            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf('.') + 1);
-            String fileName = p.getId() + "_" + System.currentTimeMillis() + "." + fileExtension;
-            String filePath = profilImgDirectory + File.separator + fileName;
-            saveImageToFile(image.getBytes(), filePath);
-            p.setImgPath(filePath); // Save the file name or path in the UserProfile entity
-            updatePatient(p);
-        } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately
-        }
+    public String updateImage(String id , MultipartFile image) throws IOException {
+        Patient d = patientRepository.getPatientsById(id);
+        String url = imageUploadService.uploadFile(image);
+        d.setImgPath(url);
+        patientRepository.save(d);
+        return url;
+//        try {
+//            String originalFileName = image.getOriginalFilename();
+//            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf('.') + 1);
+//            String fileName = p.getId() + "_" + System.currentTimeMillis() + "." + fileExtension;
+//            String filePath = profilImgDirectory + File.separator + fileName;
+//            saveImageToFile(image.getBytes(), filePath);
+//            p.setImgPath(filePath); // Save the file name or path in the UserProfile entity
+//            updatePatient(p);
+//        } catch (IOException e) {
+//            e.printStackTrace(); // Handle the exception appropriately
+//        }
 
 
     }

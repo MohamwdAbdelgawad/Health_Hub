@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/patient")
 public class PatientController {
@@ -22,8 +24,12 @@ public class PatientController {
         return ResponseEntity.ok(patientService.createPatient(patient));
     }
     @PostMapping("/img/{id}")
-    public void updatePatientImage(@PathVariable String id , @RequestParam MultipartFile image){
-        patientService.updateImage(id , image);
+    public String updatePatientImage(@PathVariable String id , @RequestParam MultipartFile image){
+        try {
+            return  patientService.updateImage(id , image);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
