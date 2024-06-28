@@ -26,7 +26,7 @@ public class ClinicMapper {
 
             protected void configure() {
                 map().setId(source.getId());
-                map().setDoctorId(source.getDoctor().getUId());
+                map().setDoctorId(source.getDoctor().getId());
                 map().setDoctorAvailabilities(source.getDoctorAvailabilities());
             }
         });

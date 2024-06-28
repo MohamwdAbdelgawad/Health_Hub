@@ -22,10 +22,10 @@ public class DoctorMapper {
         modelMapper.addMappings(new PropertyMap<Doctor, DoctorDto>() {
 
             protected void configure() {
-                map().setUId(source.getUId());
+                map().setId(source.getId());
                 map().setSpecialty(source.getSpecialty().getName());
                 map().setClinics(source.getClinics());
-                map().setRating(source.calculateRating());
+                //map().setRating(source.calculateRating());
             }
         });
 

@@ -20,7 +20,7 @@ public class RatingService {
         this.ratingRepository = ratingRepository;
     }
 
-    public Rating rateDoctor(String doctorId, int rating) {
+    public Rating rateDoctor(long doctorId, int rating) {
         Doctor doctor = doctorRepository.getDoctorById(doctorId);
         Rating newRating = new Rating();
         newRating.setDoctor(doctor);
@@ -28,7 +28,7 @@ public class RatingService {
         return ratingRepository.save(newRating);
     }
 
-    public double getAverageRating(String doctorId) {
+    public double getAverageRating(long doctorId) {
         List<Rating> ratings = ratingRepository.getRatingByDoctorId(doctorId);
         if (ratings.isEmpty()) {
             return 0.0;

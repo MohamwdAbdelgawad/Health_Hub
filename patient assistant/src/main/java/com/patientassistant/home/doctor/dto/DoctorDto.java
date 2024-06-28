@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 public class DoctorDto {
-    private String uId;
+    private long Id;
     private String name;
     private Date birthDate;
     private String phoneNumber;

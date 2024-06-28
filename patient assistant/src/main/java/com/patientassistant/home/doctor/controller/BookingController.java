@@ -26,7 +26,7 @@ public class BookingController {
         this.bookingService = bookingService;
     }
     @PostMapping
-    public Booking addBooking(@RequestBody BookingInput bookingInput){
+    public BookingInput addBooking(@RequestBody BookingInput bookingInput){
         return bookingService.createBooking(bookingInput);
     }
 }

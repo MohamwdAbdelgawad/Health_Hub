@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ClinicRepository extends JpaRepository<Clinic, Long> {
     public Clinic getClinicById(long id);
-    public List<Clinic> getClinicsByDoctorId(String doctorId);
+    public List<Clinic> getClinicsByDoctorId(long doctorId);
 
 }

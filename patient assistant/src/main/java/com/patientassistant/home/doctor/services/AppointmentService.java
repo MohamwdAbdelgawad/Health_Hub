@@ -2,6 +2,7 @@ package com.patientassistant.home.doctor.services;
 
 
 import com.patientassistant.home.doctor.entity.Appointment;
+import com.patientassistant.home.doctor.entity.Clinic;
 import com.patientassistant.home.doctor.entity.Doctor;
 import com.patientassistant.home.doctor.repository.AppointmentRepository;
 import jakarta.persistence.EntityManager;
@@ -41,14 +42,14 @@ public class AppointmentService {
             return appointmentRepository.save(appointment);
         }
     }
-    public List<Appointment> findAvailableAppointmentsForDoctorByDate(String doctorId, LocalDate date) {
-        Doctor doctor = em.find(Doctor.class, doctorId);
+    public List<Appointment> findAvailableAppointmentsForDoctorByDate(String clinicId, LocalDate date) {
+        Clinic clinic = em.find(Clinic.class, clinicId);
 
                 // Filter appointments for the doctor on the specific day
                 Query query1 = em.createQuery("SELECT a FROM Appointment a " +
-                        "WHERE a.doctor = :doctor AND a.day = :dayOfWeek");
+                        "WHERE a.clinic = :clinic AND a.day = :dayOfWeek");
 
-        query1.setParameter("doctor", doctor);
+        query1.setParameter("clinic", clinic);
         query1.setParameter("dayOfWeek", date.getDayOfWeek()); // Get DayOfWeek from LocalDate
 
         List<Appointment> allAppointments = query1.getResultList();
@@ -61,9 +62,9 @@ public class AppointmentService {
             // Use a subquery to check for bookings on the specific appointment date and time
             Query query2 = em.createQuery(
                     "SELECT b FROM Booking b " +
-                            "WHERE b.doctor = :doctor AND b.bookingDate = :date AND b.startTime = :startTime AND b.endTime = :endTime");
+                            "WHERE b.clinic = :clinic AND b.bookingDate = :date AND b.startTime = :startTime AND b.endTime = :endTime");
 
-            query2.setParameter("doctor", doctor);
+            query2.setParameter("clinic", clinic);
             query2.setParameter("date", date);
             query2.setParameter("startTime", appointment.getStartTime());
             query2.setParameter("endTime", appointment.getEndTime());

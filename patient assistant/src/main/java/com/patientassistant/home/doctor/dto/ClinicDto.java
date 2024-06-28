@@ -15,6 +15,6 @@ public class ClinicDto {
     private double latitude;
     private double longitude;
     private String address;
-    private String doctorId;
+    private long doctorId;
     private List<DoctorAvailability> doctorAvailabilities;
 }

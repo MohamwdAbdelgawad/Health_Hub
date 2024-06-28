@@ -18,7 +18,7 @@ public class DoctorAvailabilityService {
         DoctorAvailability existingDoctorAvailability = doctorAvailabilityRepository.findByClinicIdAndDayAndDoctorId(
                 doctorAvailability.getClinic().getId(),
                 doctorAvailability.getDay(),
-                doctorAvailability.getDoctor().getUId()
+                doctorAvailability.getDoctor().getId()
         );
 
         if (existingDoctorAvailability != null) {

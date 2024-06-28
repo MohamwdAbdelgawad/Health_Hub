@@ -61,20 +61,20 @@ public class ClinicService {
         return clinicMapper.map(clinic, ClinicDto.class);
     }
 
-    public ClinicDto addClinic(Clinic clinic , String doctorId){
+    public ClinicDto addClinic(Clinic clinic , long doctorId){
         Doctor d = doctorRepository.getDoctorById(doctorId);
         clinic.setDoctor(d);
         Clinic c = clinicRepository.save(clinic);
         return this.convertToDto(c);
     }
-    public ClinicDto updateClinic(Clinic clinic , String doctorId){
+    public ClinicDto updateClinic(Clinic clinic , long doctorId){
         Doctor d = doctorRepository.getDoctorById(doctorId);
         clinic.setDoctor(d);
         Clinic c = clinicRepository.save(clinic);
         return this.convertToDto(c);
     }
 
-    public List<ClinicDto> getClinicByDoctor(String doctorId){
+    public List<ClinicDto> getClinicByDoctor(long doctorId){
         List<Clinic> clinics = clinicRepository.getClinicsByDoctorId(doctorId);
         return clinics.stream().map(this::convertToDto).collect(Collectors.toList());
     }

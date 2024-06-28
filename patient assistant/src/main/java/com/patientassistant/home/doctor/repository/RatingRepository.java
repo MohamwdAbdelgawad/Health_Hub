@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface RatingRepository extends JpaRepository<Rating , Long> {
-    List<Rating> getRatingByDoctorId(String doctorId);
+    List<Rating> getRatingByDoctorId(long doctorId);
 }

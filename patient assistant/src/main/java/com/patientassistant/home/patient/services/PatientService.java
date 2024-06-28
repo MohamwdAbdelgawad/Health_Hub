@@ -6,6 +6,8 @@ import com.patientassistant.home.patient.entity.Patient;
 import com.patientassistant.home.patient.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -20,18 +23,22 @@ public class PatientService {
     private String profilImgDirectory = "D:/Spring/chad project/spring boot 3 and hibernate/Cource code by me/patient assistant/profileImg";
     private PatientRepository patientRepository;
     private ImageUploadService imageUploadService;
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
-    public PatientService(PatientRepository patientRepository , ImageUploadService imageUploadService){
+    public PatientService(PatientRepository patientRepository , ImageUploadService imageUploadService,
+                          PasswordEncoder passwordEncoder){
         this.patientRepository  = patientRepository;
         this.imageUploadService = imageUploadService;
+        this.passwordEncoder = passwordEncoder;
+
     }
-    public Patient getPatientById(String id){
-        return patientRepository.getPatientsById(id);
+    public Patient getPatientById(long id){
+        return patientRepository.getPatientById(id);
     }
-    public Patient createPatient(Patient patient){
-        if (patient.getId() == null || patient.getId().isEmpty()) {
-            patient.setUId(UUID.randomUUID().toString()); // or any other logic to generate the ID
-        }
+    public Patient createPatient(Patient patient) {
+        patient.setEnabled(true);
+        patient.setPassword(passwordEncoder.encode(patient.getPassword()));
         return patientRepository.save(patient);
     }
     public Patient updatePatient(Patient patient){
@@ -41,8 +48,11 @@ public class PatientService {
          patientRepository.delete(patient);
 
     }
-    public String updateImage(String id , MultipartFile image) throws IOException {
-        Patient d = patientRepository.getPatientsById(id);
+    public Optional<Patient> getDoctorByUsername(String username){
+        return Optional.ofNullable(patientRepository.getPatientByUsername(username).orElse(null));
+    }
+    public String updateImage(long id , MultipartFile image) throws IOException {
+        Patient d = patientRepository.getPatientById(id);
         String url = imageUploadService.uploadFile(image);
         d.setImgPath(url);
         patientRepository.save(d);

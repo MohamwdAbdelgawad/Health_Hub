@@ -1,27 +1,27 @@
 package com.patientassistant.home.doctor.services;
 
 import com.patientassistant.home.aws.service.ImageUploadService;
-import com.patientassistant.home.doctor.dto.DoctorAvailabilityInput;
 import com.patientassistant.home.doctor.dto.DoctorDto;
-import com.patientassistant.home.doctor.entity.Clinic;
 import com.patientassistant.home.doctor.entity.Doctor;
-import com.patientassistant.home.doctor.entity.DoctorAvailability;
 import com.patientassistant.home.doctor.entity.Specialty;
 import com.patientassistant.home.doctor.repository.DoctorRepository;
-import com.patientassistant.home.patient.entity.Patient;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.OpenOption;
 import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,20 +29,43 @@ public class DoctorService {
     private String profilImgDirectory = "D:/Spring/chad project/spring boot 3 and hibernate/Cource code by me/patient assistant/profileImg";
     private DoctorRepository doctorRepository;
     private ImageUploadService imageUploadService;
+    private PasswordEncoder passwordEncoder;
+    private SpecialtyService specialtyService;
+
     @Qualifier("doctorModelMapper")
     private ModelMapper modelMapper;
     @Autowired
     public DoctorService(DoctorRepository doctorRepository , @Qualifier("doctorModelMapper")ModelMapper modelMapper,
-                         ImageUploadService imageUploadService){
+                         ImageUploadService imageUploadService,
+                          PasswordEncoder passwordEncoder ,
+                         SpecialtyService specialtyService){
        this.doctorRepository = doctorRepository;
        this.modelMapper = modelMapper;
        this.imageUploadService = imageUploadService;
+       this.passwordEncoder = passwordEncoder;
+       this.specialtyService = specialtyService;
     }
-    public Doctor addDoctor(Doctor d){
-        return doctorRepository.save(d);
+    public Doctor addDoctor(Doctor doctor) {
+        Specialty specialty = doctor.getSpecialty();
+        if (specialty != null && specialty.getName() != null) {
+            Optional<Specialty> existingSpecialty = specialtyService.getByName(specialty.getName());
+            if (existingSpecialty.isPresent()) {
+                doctor.setSpecialty(existingSpecialty.get());
+            } else {
+                specialtyService.saveOrUpdateSpecialty(specialty);
+            }
+        }
+        doctor.setPassword(passwordEncoder.encode(doctor.getPassword()));
+        return doctorRepository.save(doctor);
     }
-    public Doctor updateDoctor(Doctor d){
-        return doctorRepository.save(d);
+    public DoctorDto updateDoctor(Doctor d , String userName){
+        Optional<Doctor> doctor = doctorRepository.getDoctorByUsername(userName);
+        if(doctor.isPresent()){
+            d.setId(doctor.get().getId());
+            d.setUsername(doctor.get().getUsername());
+            d.setPassword(doctor.get().getPassword());
+        }
+        return convertToDto(doctorRepository.save(d));
     }
     public void deleteDoctor(Doctor d){
          doctorRepository.delete(d);
@@ -54,7 +77,7 @@ public class DoctorService {
     private DoctorDto convertToDto(Doctor doctor) {
         return modelMapper.map(doctor, DoctorDto.class);
     }
-    public DoctorDto getDoctorById(String id){
+    public DoctorDto getDoctorById(long id){
         Doctor doctor =  doctorRepository.getDoctorById(id);
         return  modelMapper.map(doctor , DoctorDto.class);
     }
@@ -66,7 +89,10 @@ public class DoctorService {
         List<Doctor> doctors  =  doctorRepository.getDoctorsBySpecialtyId(id);
         return doctors.stream().map(this::convertToDto).collect(Collectors.toList());
     }
-    public String updateImage(String id , MultipartFile image) throws IOException {
+    public Optional<Doctor> getDoctorByUsername(String username){
+        return Optional.ofNullable(doctorRepository.getDoctorByUsername(username).orElse(null));
+    }
+    public String updateImage(long id , MultipartFile image) throws IOException {
         Doctor d = doctorRepository.getDoctorById(id);
         String url = imageUploadService.uploadFile(image);
         d.setImgPath(url);

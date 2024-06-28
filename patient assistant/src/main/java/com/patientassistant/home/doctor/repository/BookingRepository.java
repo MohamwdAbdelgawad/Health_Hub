@@ -9,5 +9,5 @@ import java.time.LocalTime;
 import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-    List<Booking>  findBookingByDoctorId(String  doctorId);
+    List<Booking>  findBookingByDoctorId(long  doctorId);
 }

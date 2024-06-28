@@ -26,11 +26,11 @@ public class ClinicController {
         this.clinicService = clinicService;
     }
     @PostMapping("/{doctorId}")
-    public ClinicDto addClinic(@RequestBody Clinic clinic ,@PathVariable String doctorId){
+    public ClinicDto addClinic(@RequestBody Clinic clinic ,@PathVariable long doctorId){
         return clinicService.addClinic(clinic , doctorId);
     }
     @PutMapping("/{doctorId}")
-    public ClinicDto updateClinic(@RequestBody Clinic clinic , @PathVariable String doctorId){
+    public ClinicDto updateClinic(@RequestBody Clinic clinic , @PathVariable long doctorId){
         return clinicService.updateClinic(clinic , doctorId);
     }
     @PostMapping("/{clinicId}/availability")
@@ -40,7 +40,7 @@ public class ClinicController {
         return clinicService.saveDoctorAvailability(clinicId, availabilityInput);
     }
     @GetMapping("/by-doctor")
-    public ResponseEntity<List<ClinicDto>> getClinicByDoctor(@RequestParam String doctorId){
+    public ResponseEntity<List<ClinicDto>> getClinicByDoctor(@RequestParam long doctorId){
         return ResponseEntity.ok(clinicService.getClinicByDoctor(doctorId));
     }
     @GetMapping("/by-id")

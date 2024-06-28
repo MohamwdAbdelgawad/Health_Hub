@@ -24,7 +24,7 @@ public class PatientController {
         return ResponseEntity.ok(patientService.createPatient(patient));
     }
     @PostMapping("/img/{id}")
-    public String updatePatientImage(@PathVariable String id , @RequestParam MultipartFile image){
+    public String updatePatientImage(@PathVariable long id , @RequestParam MultipartFile image){
         try {
             return  patientService.updateImage(id , image);
         } catch (Exception e) {
@@ -34,7 +34,7 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Patient> getPatientById(@PathVariable String id){
+    public ResponseEntity<Patient> getPatientById(@PathVariable long id){
         return ResponseEntity.ok(patientService.getPatientById(id));
     }
 }

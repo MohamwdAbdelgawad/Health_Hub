@@ -29,9 +29,9 @@ public class BookingService {
         this.patientRepository = patientRepository;
         this.bookingRepository = bookingRepository;
     }
-    public Booking createBooking(BookingInput bookingInput){
+    public BookingInput createBooking(BookingInput bookingInput){
         Doctor doctor = doctorRepository.getDoctorById(bookingInput.getDoctorId());
-        Patient patient = patientRepository.getPatientsById(bookingInput.getPatientId());
+        Patient patient = patientRepository.getPatientById(bookingInput.getPatientId());
         Clinic clinic = clinicRepository.getClinicById(bookingInput.getClinicId());
         Booking booking = new Booking();
         booking.setDoctor(doctor);
@@ -40,7 +40,10 @@ public class BookingService {
         booking.setBookingDate(bookingInput.getBookingDate());
         booking.setStartTime(bookingInput.getStartTime());
         booking.setEndTime(bookingInput.getEndTime());
-        return  bookingRepository.save(booking);
+        Booking b =  bookingRepository.save(booking);
+        BookingInput bookingInput1 = new BookingInput(b.getDoctor().getId() , b.getClinic().getId() , b.getStartTime(),
+                b.getEndTime() , b.getBookingDate() , b.getPatient().getId());
+        return bookingInput1;
 
     }
 

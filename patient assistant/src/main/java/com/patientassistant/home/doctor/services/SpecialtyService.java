@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SpecialtyService {
@@ -22,11 +23,19 @@ public class SpecialtyService {
     public List<Specialty> getAllSpeciality(){
         return  specialtyRepository.findAll();
     }
-    public Specialty getByName(String name){
-        return specialtyRepository.getSpecialtyByName(name);
+    public Optional<Specialty> getByName(String name){
+        return Optional.ofNullable(specialtyRepository.getSpecialtyByName(name));
     }
-    public Specialty addSpeciality(Specialty s){
-        return specialtyRepository.save(s);
+    public Specialty saveOrUpdateSpecialty(Specialty specialty) {
+        Optional<Specialty> existingSpecialty = specialtyRepository.getSpecialtiesByName(specialty.getName());
+        if (existingSpecialty.isPresent()) {
+            Specialty existing = existingSpecialty.get();
+            existing.setName(specialty.getName());
+            existing.setDoctors(specialty.getDoctors());
+            return specialtyRepository.save(existing);
+        } else {
+            return specialtyRepository.save(specialty);
+        }
     }
     public Specialty getById(long id){
         return specialtyRepository.getSpecialtyById(id);
