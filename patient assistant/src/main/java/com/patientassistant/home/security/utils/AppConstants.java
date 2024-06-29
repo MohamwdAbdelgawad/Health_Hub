@@ -2,8 +2,8 @@ package com.patientassistant.home.security.utils;
 
 public class AppConstants {
     public static final String AUTH_HEADER = "Authentication";
-    public static final int ACCESS_EXPATRIATION_TIME = 60 * 60 * 1000;
-    public static final int REFRESH_EXPATRIATION_TIME = 7 * ACCESS_EXPATRIATION_TIME;
+    public static final int ACCESS_EXPATRIATION_TIME = 4 * 24 * 60 * 60 * 1000;
+    public static final int REFRESH_EXPATRIATION_TIME = 4 * ACCESS_EXPATRIATION_TIME;
 
     public static final String CLIENT_URL = "https://healthhub-production-5029.up.railway.app";
 
