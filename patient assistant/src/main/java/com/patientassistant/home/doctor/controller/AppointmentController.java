@@ -14,8 +14,8 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
     @GetMapping()
-    public List<Appointment> findAvailableAppointmentsForDoctorByDate(@RequestParam String doctorId,@RequestParam String dateString){
+    public List<Appointment> findAvailableAppointmentsForDoctorByDate(@RequestParam String clinicId,@RequestParam String dateString){
         LocalDate localDate = LocalDate.parse(dateString);
-        return appointmentService.findAvailableAppointmentsForDoctorByDate(doctorId , localDate);
+        return appointmentService.findAvailableAppointmentsForDoctorByDate(clinicId , localDate);
     }
 }
