@@ -70,6 +70,8 @@ public class SecurityConfig {
                         "/oauth2/**",
                         "/auth/login",
                         "/auth/confirm",
+                        "/auth/forgot-password",
+                        "/auth/reset-password",
                         "/auth/refresh-token",
                         "/auth/register",
                         "/swagger-ui.html",

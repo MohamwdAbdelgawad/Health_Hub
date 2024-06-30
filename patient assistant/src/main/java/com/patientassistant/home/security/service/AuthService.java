@@ -9,9 +9,11 @@ import com.patientassistant.home.security.config.AuthenticationProviderService;
 import com.patientassistant.home.security.dto.FailureResponseHandler;
 import com.patientassistant.home.security.dto.LoginRequest;
 import com.patientassistant.home.security.entites.ConfirmationToken;
+import com.patientassistant.home.security.entites.Otp;
 import com.patientassistant.home.security.entites.User;
 import com.patientassistant.home.security.utils.JwtTokenUtils;
 
+import com.patientassistant.home.security.utils.OtpUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.java.Log;
@@ -26,6 +28,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -42,6 +45,9 @@ public class AuthService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private OtpService otpService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -240,5 +246,30 @@ public class AuthService {
         // log.info(token.getToken());
         // log.info(link);
         emailServiceImp.sendMail(customer, link);
+    }
+    public ResponseEntity<String> forgotPassword(String email) {
+        Optional<User> user = userRepository.getUserByUsername(email);
+        if (user.isPresent()) {
+            String otp = OtpUtil.generateOtp();
+            otpService.saveOtp(email, otp);
+            emailServiceImp.sendOtpEmail(email, "Password Reset OTP", "Your OTP is: " + otp);
+            return ResponseEntity.ok("OTP sent to your email.");
+        }
+        else {
+            throw new RuntimeException("user not found");
+        }
+    }
+    public ResponseEntity<String> resetPassword(String email, String otp, String newPassword) {
+        Optional<Otp> otpEntity = otpService.findByEmailAndOtp(email, otp);
+        if (otpEntity.isPresent() && otpEntity.get().getExpirationTime().isAfter(LocalDateTime.now())) {
+           Optional<User> user = userRepository.getUserByUsername(email);
+           if (user.isPresent()){
+               user.get().setPassword(passwordEncoder.encode(newPassword));
+               userRepository.save(user.get());
+           }
+            return ResponseEntity.ok("Password reset successful.");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid or expired OTP.");
+        }
     }
 }

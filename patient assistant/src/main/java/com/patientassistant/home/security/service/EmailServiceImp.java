@@ -108,4 +108,20 @@ public class EmailServiceImp implements EmailService {
                 "\n" +
                 "</div></div>";
     }
+    public String sendOtpEmail(String to, String subject, String text) {
+        try {
+            MimeMessage mimeMessage = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+            helper.setFrom("mohamedabd146309@gmail.com");
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(text , true);
+            mailSender.send(mimeMessage);
+            return "Mail sent";
+        } catch (Exception e) {
+            // Log the error and rethrow an appropriate exception
+            // log.error("Failed to send email", e);
+            throw new RuntimeException("Failed to send email", e);
+        }
+    }
 }
