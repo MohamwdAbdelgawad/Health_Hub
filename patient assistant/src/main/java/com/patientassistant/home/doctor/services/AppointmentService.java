@@ -42,7 +42,7 @@ public class AppointmentService {
             return appointmentRepository.save(appointment);
         }
     }
-    public List<Appointment> findAvailableAppointmentsForDoctorByDate(String clinicId, LocalDate date) {
+    public List<Appointment> findAvailableAppointmentsForDoctorByDate(long clinicId, LocalDate date) {
         Clinic clinic = em.find(Clinic.class, clinicId);
 
                 // Filter appointments for the doctor on the specific day

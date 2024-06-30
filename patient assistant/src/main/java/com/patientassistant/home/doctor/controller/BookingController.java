@@ -8,6 +8,7 @@ import com.patientassistant.home.doctor.entity.Booking;
 import com.patientassistant.home.doctor.entity.Clinic;
 import com.patientassistant.home.doctor.services.BookingService;
 import com.patientassistant.home.doctor.services.ClinicService;
+import com.patientassistant.home.security.utils.JwtTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +21,19 @@ import java.util.Map;
 @RequestMapping("/booking")
 public class BookingController {
     private BookingService bookingService;
+    private JwtTokenUtils jwtTokenUtils ;
 
     @Autowired
-    public BookingController(BookingService bookingService) {
+    public BookingController(BookingService bookingService , JwtTokenUtils jwtTokenUtils) {
         this.bookingService = bookingService;
+        this.jwtTokenUtils = jwtTokenUtils;
     }
     @PostMapping
-    public BookingInput addBooking(@RequestBody BookingInput bookingInput){
-        return bookingService.createBooking(bookingInput);
+    public BookingInput addBooking(@RequestHeader("Authentication") String token , @RequestBody BookingInput bookingInput){
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        String username = jwtTokenUtils.extractUsername(token);
+        return bookingService.createBooking(username , bookingInput);
     }
 }

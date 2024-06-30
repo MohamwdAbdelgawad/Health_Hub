@@ -9,8 +9,11 @@ import com.patientassistant.home.doctor.repository.ClinicRepository;
 import com.patientassistant.home.doctor.repository.DoctorRepository;
 import com.patientassistant.home.patient.entity.Patient;
 import com.patientassistant.home.patient.repository.PatientRepository;
+import com.patientassistant.home.security.utils.JwtTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -18,24 +21,27 @@ public class BookingService {
     private PatientRepository patientRepository;
     private ClinicRepository clinicRepository;
     private BookingRepository bookingRepository;
+    private JwtTokenUtils jwtTokenUtils ;
     @Autowired
     public BookingService( DoctorRepository doctorRepository ,
                            PatientRepository patientRepository,
                            ClinicRepository clinicRepository,
-                           BookingRepository bookingRepository)
+                           BookingRepository bookingRepository ,
+                           JwtTokenUtils jwtTokenUtils )
     {
         this.doctorRepository = doctorRepository;
         this.clinicRepository = clinicRepository;
         this.patientRepository = patientRepository;
         this.bookingRepository = bookingRepository;
+        this.jwtTokenUtils = jwtTokenUtils;
     }
-    public BookingInput createBooking(BookingInput bookingInput){
+    public BookingInput createBooking(String username ,BookingInput bookingInput){
         Doctor doctor = doctorRepository.getDoctorById(bookingInput.getDoctorId());
-        Patient patient = patientRepository.getPatientById(bookingInput.getPatientId());
+        Optional<Patient> patient = patientRepository.getPatientByUsername(username);
         Clinic clinic = clinicRepository.getClinicById(bookingInput.getClinicId());
         Booking booking = new Booking();
         booking.setDoctor(doctor);
-        booking.setPatient(patient);
+        booking.setPatient(patient.get());
         booking.setClinic(clinic);
         booking.setBookingDate(bookingInput.getBookingDate());
         booking.setStartTime(bookingInput.getStartTime());

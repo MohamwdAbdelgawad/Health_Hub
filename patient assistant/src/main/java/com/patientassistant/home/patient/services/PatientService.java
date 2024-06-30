@@ -1,6 +1,7 @@
 package com.patientassistant.home.patient.services;
 
 import com.patientassistant.home.aws.service.ImageUploadService;
+import com.patientassistant.home.doctor.dto.DoctorDto;
 import com.patientassistant.home.doctor.entity.Doctor;
 import com.patientassistant.home.patient.entity.Patient;
 import com.patientassistant.home.patient.repository.PatientRepository;
@@ -50,6 +51,15 @@ public class PatientService {
     }
     public Optional<Patient> getDoctorByUsername(String username){
         return Optional.ofNullable(patientRepository.getPatientByUsername(username).orElse(null));
+    }
+    public Patient updatePatient(Patient patient , String userName){
+        Optional<Patient> p = patientRepository.getPatientByUsername(userName);
+        if(p.isPresent()){
+           patient.setId(p.get().getId());
+           patient.setUsername(p.get().getUsername());
+           patient.setPassword(p.get().getPassword());
+        }
+        return patientRepository.save(patient);
     }
     public String updateImage(long id , MultipartFile image) throws IOException {
         Patient d = patientRepository.getPatientById(id);
