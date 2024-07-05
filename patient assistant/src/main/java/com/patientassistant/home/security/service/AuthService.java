@@ -76,6 +76,8 @@ public class AuthService {
 
 
     public ResponseEntity<?> registerDoctor(Doctor doctorInput) {
+        doctorInput.setEnabled(true);
+        doctorInput.setLocked(false);
         Optional<Doctor> doctor = doctorService.getDoctorByUsername(doctorInput.getUsername());
         if (doctor.isPresent()) {
             return ResponseEntity
@@ -87,7 +89,7 @@ public class AuthService {
         Doctor savedDoctor ;
         savedDoctor = doctorService.addDoctor(doctorInput);
         if (savedDoctor != null) {
-            sendEmail(savedDoctor);
+           // sendEmail(savedDoctor);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(SuccessRegisterResponse(savedDoctor, "Given user details are successfully registered"));
@@ -100,6 +102,8 @@ public class AuthService {
     }
 
     public ResponseEntity<?> registerPatient(Patient patientInput) {
+        patientInput.setEnabled(true);
+        patientInput.setLocked(false);
         Optional<Patient> patient = patientService.getDoctorByUsername(patientInput.getUsername());
         if (patient.isPresent()) {
             return ResponseEntity
@@ -111,7 +115,7 @@ public class AuthService {
         Patient savedPatient ;
         savedPatient = patientService.createPatient(patientInput);
         if (savedPatient != null) {
-            sendEmail(savedPatient);
+           // sendEmail(savedPatient);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(SuccessRegisterResponse(savedPatient, "Given user details are successfully registered"));
