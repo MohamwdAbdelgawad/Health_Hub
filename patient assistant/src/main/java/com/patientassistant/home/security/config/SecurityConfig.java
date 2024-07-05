@@ -25,6 +25,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static com.patientassistant.home.security.utils.AppConstants.CLIENT_URL;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -41,7 +43,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Collections.singletonList("*"));
+        config.setAllowedOrigins(Arrays.asList("http://127.0.0.1:5500" , CLIENT_URL));
         config.setAllowCredentials(true);
         config.setExposedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("*"));
@@ -54,7 +56,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // CORS configuration
-         http.cors(cors-> cors.disable());
+         http.cors(corsCustomizer-> corsCustomizer.configurationSource(corsConfigurationSource()));
         // CSRF configuration
         http.csrf(csrf -> csrf.disable());
 
